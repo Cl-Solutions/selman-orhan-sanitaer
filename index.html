@@ -1144,12 +1144,17 @@
     .modal ul { padding-left: 20px; }
     .modal a { color: var(--red); }
 
+    /* ── MOBILE STICKY BAR ── */
+    .mobile-bar {
+      display: none;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       nav { padding: 0 20px; }
-      .nav-links { display: none; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: var(--dark); padding: 16px 20px; gap: 2px; }
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: var(--dark); padding: 16px 20px; gap: 2px; box-shadow: 0 12px 32px oklch(0% 0 0 / .3); }
       .nav-links.open { display: flex; }
-      .nav-links a { display: block; padding: 12px 16px; border-radius: 8px; }
+      .nav-links a { display: block; padding: 14px 16px; border-radius: 8px; font-size: 16px; }
       .hamburger { display: flex; }
 
       #about, #services, #foerderung, #rechner, #kontakt { padding: 72px 24px; }
@@ -1158,6 +1163,9 @@
 
       .hero-content { padding: 0 24px 60px; }
       .trust-bar { padding: 16px 24px; gap: 28px; }
+
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .btn-primary { max-width: 300px; width: 100%; justify-content: center; }
 
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-mosaic { grid-template-rows: 200px 140px; }
@@ -1171,6 +1179,8 @@
       .foerderung-layout { grid-template-columns: 1fr; gap: 40px; }
 
       .rechner-intro { grid-template-columns: 1fr; gap: 0; }
+      .rechner-tabs { width: 100%; }
+      .tab-btn { flex: 1; text-align: center; padding: 12px 16px; }
 
       .kontakt-grid { grid-template-columns: 1fr; gap: 48px; }
       .form-row { grid-template-columns: 1fr; }
@@ -1180,14 +1190,110 @@
       .footer-links { justify-content: center; }
     }
 
+    @media (max-width: 768px) {
+      .mobile-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 950;
+        background: var(--dark);
+        border-top: 1px solid oklch(100% 0 0 / .1);
+        padding: 10px 16px;
+        gap: 10px;
+        align-items: center;
+        box-shadow: 0 -4px 24px oklch(0% 0 0 / .25);
+      }
+
+      .mobile-bar-call {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--white);
+        text-decoration: none;
+        padding: 6px 0;
+        min-width: 0;
+      }
+
+      .mobile-bar-call-icon {
+        width: 38px; height: 38px;
+        background: oklch(38% 0.01 230);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        flex-shrink: 0;
+      }
+
+      .mobile-bar-call strong {
+        display: block;
+        font-family: var(--font-head);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+      }
+
+      .mobile-bar-call span {
+        display: block;
+        font-size: 11px;
+        color: oklch(60% 0.006 18);
+        font-family: var(--font-head);
+        font-weight: 500;
+        letter-spacing: .02em;
+      }
+
+      .mobile-bar-contact {
+        background: var(--red);
+        color: var(--white);
+        padding: 11px 16px;
+        border-radius: 8px;
+        font-family: var(--font-head);
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background .2s;
+      }
+
+      .mobile-bar-contact:active { background: var(--red-dim); }
+
+      body { padding-bottom: 68px; }
+    }
+
     @media (max-width: 640px) {
-      .hero-content h1 { font-size: 40px; }
+      .nav-logo-text span { display: none; }
+
+      #about, #services, #foerderung, #rechner, #kontakt { padding: 60px 18px; }
+      #nibe { padding: 56px 18px; }
+      footer { padding: 36px 18px; }
+      .hero-content { padding: 0 18px 56px; }
+
+      .hero-content h1 { font-size: 34px; line-height: 1.1; }
       .trust-bar { display: none; }
+
       .about-mosaic img:first-child { grid-row: auto; }
       .about-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px; }
-      .rechner-form { padding: 22px; }
-      .contact-form { padding: 24px; }
-      .modal { padding: 28px 22px; }
+      .stat { padding: 14px 10px; }
+      .stat-num { font-size: 22px; }
+
+      .rechner-form { padding: 20px 18px; }
+      .calc-btn { width: 100%; }
+
+      .contact-form { padding: 22px 18px; }
+      .services-phone { font-size: 18px; }
+
+      .modal { padding: 28px 18px; }
+      .footer-center { font-size: 12px; }
+    }
+
+    @media (max-width: 400px) {
+      .hero-content h1 { font-size: 30px; }
+      nav { padding: 0 14px; }
+      .nav-logo img { height: 36px; }
+      .nav-logo-text strong { font-size: 12px; }
     }
   </style>
 </head>
@@ -1673,6 +1779,18 @@
     <h3>Google Maps</h3>
     <p>Diese Website nutzt Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Durch die Nutzung können Informationen an Google übertragen werden.</p>
   </div>
+</div>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar">
+  <a href="tel:+4972311884648" class="mobile-bar-call">
+    <div class="mobile-bar-call-icon">📞</div>
+    <div>
+      <strong>07231-1884648</strong>
+      <span>Mo–Fr 07–18 · Sa 09–13</span>
+    </div>
+  </a>
+  <a href="#kontakt" class="mobile-bar-contact">Anfrage</a>
 </div>
 
 <script>
