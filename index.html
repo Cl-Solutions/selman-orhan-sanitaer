@@ -7,7 +7,7 @@
   <meta name="description" content="Ihr Fachbetrieb für Sanitär, Heizung, Lüftung und Solar in Pforzheim. Gas- und Wasserinstallationen, Badsanierung, Wärmepumpen. Jetzt Anfrage senden!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -29,7 +29,7 @@
       --white:      oklch(99% 0.004 18);
       --radius:     10px;
       --font-head:  'Barlow', system-ui, sans-serif;
-      --font-body:  'Nunito Sans', system-ui, sans-serif;
+      --font-body:  'Work Sans', system-ui, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -202,9 +202,9 @@
       margin-bottom: 24px;
     }
 
-    .hero-content h1 .line2 {
-      color: var(--red);
-    }
+    .hero-content h1 .col-red   { color: oklch(72% 0.18 26); }
+    .hero-content h1 .col-blue  { color: oklch(72% 0.14 255); }
+    .hero-content h1 .col-green { color: oklch(72% 0.14 143); }
 
     .hero-sub {
       font-size: clamp(15px, 1.8vw, 18px);
@@ -1187,8 +1187,10 @@
   <div class="hero-content">
     <p class="hero-location">Pforzheim</p>
     <h1>
-      Ihr Fachbetrieb<br>
-      <span class="line2">für Heizung, Sanitär<br>&amp; Lüftung.</span>
+      Ihr Fachbetrieb für<br>
+      <span class="col-red">Heizung</span> ·
+      <span class="col-blue">Sanitär</span> ·
+      <span class="col-green">Lüftung</span>
     </h1>
     <p class="hero-sub">Gas- und Wasserinstallationen mit umfassender Beratung, hochwertiger Arbeit und durchgehendem Service – alles aus einer Hand.</p>
     <div class="hero-actions">
