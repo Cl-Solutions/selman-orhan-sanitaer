@@ -127,6 +127,13 @@
 
     .nav-cta:hover { background: var(--red-dim) !important; }
 
+    .nav-nibe {
+      color: var(--blue) !important;
+      font-weight: 700 !important;
+      background: oklch(45% 0.178 255 / .12) !important;
+    }
+    .nav-nibe:hover { background: oklch(45% 0.178 255 / .22) !important; }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -1172,7 +1179,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">Über uns</a></li>
     <li><a href="#services">Leistungen</a></li>
-    <li><a href="#nibe">NIBE</a></li>
+    <li><a href="#nibe" class="nav-nibe">NIBE</a></li>
     <li><a href="#rechner">Rechner</a></li>
     <li><a href="#kontakt" class="nav-cta">Anfrage senden</a></li>
   </ul>
