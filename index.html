@@ -7,7 +7,7 @@
   <meta name="description" content="Ihr Fachbetrieb für Sanitär, Heizung, Lüftung und Solar in Pforzheim. Gas- und Wasserinstallationen, Badsanierung, Wärmepumpen. Jetzt Anfrage senden!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -28,7 +28,7 @@
       --muted:      oklch(52% 0.008 18);
       --white:      oklch(99% 0.004 18);
       --radius:     10px;
-      --font-head:  'Montserrat', system-ui, sans-serif;
+      --font-head:  'Manrope', system-ui, sans-serif;
       --font-body:  'Work Sans', system-ui, sans-serif;
     }
 
@@ -43,8 +43,8 @@
 
     h1, h2, h3, h4, h5 {
       font-family: var(--font-head);
-      font-weight: 600;
-      letter-spacing: -0.01em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     /* ── REVEAL ANIMATION ── */
@@ -88,7 +88,7 @@
       font-family: var(--font-head);
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: .01em;
+      letter-spacing: -0.01em;
       line-height: 1.2;
     }
 
@@ -207,23 +207,30 @@
     }
 
     .hero-content h1 {
-      font-size: clamp(44px, 7vw, 84px);
+      font-size: clamp(34px, 5.2vw, 62px);
       font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      margin-bottom: 24px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
     }
 
-    .hero-content h1 .col-red   { color: oklch(72% 0.18 26); }
-    .hero-content h1 .col-blue  { color: oklch(72% 0.14 255); }
-    .hero-content h1 .col-green { color: oklch(72% 0.14 143); }
+    .hero-content h1 .trade-list {
+      display: block;
+      font-weight: 500;
+      color: oklch(92% 0.005 18);
+      letter-spacing: -0.005em;
+      margin-top: 6px;
+    }
+
+    .hero-content h1 .trade-list span + span { margin-left: .5em; }
 
     .hero-sub {
-      font-size: clamp(15px, 1.8vw, 18px);
-      color: oklch(80% 0.005 18);
-      line-height: 1.65;
-      max-width: 520px;
-      margin-bottom: 40px;
+      font-size: clamp(15px, 1.6vw, 17px);
+      color: oklch(82% 0.005 18);
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 36px;
+      font-weight: 400;
     }
 
     .hero-actions {
@@ -313,9 +320,9 @@
     }
 
     .section-title {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 900;
-      line-height: 1.1;
+      font-size: clamp(26px, 3.4vw, 40px);
+      font-weight: 700;
+      line-height: 1.12;
       letter-spacing: -0.025em;
       margin-bottom: 18px;
     }
@@ -381,7 +388,24 @@
       margin-bottom: 14px;
     }
 
-    .about-copy p:last-of-type { margin-bottom: 36px; }
+    .about-copy p:last-of-type { margin-bottom: 30px; }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      color: var(--red);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid var(--red-bg);
+      transition: border-color .2s, gap .25s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .about-link:hover { border-color: var(--red); gap: 14px; }
 
     .about-stats {
       display: grid;
@@ -455,11 +479,11 @@
       margin-bottom: 4px;
     }
 
-    /* 3 category columns */
+    /* 4 category columns */
     .services-cats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
       border-radius: 14px;
       overflow: visible;
     }
@@ -480,7 +504,7 @@
     }
 
     .cat-photo {
-      height: 200px;
+      height: 170px;
       overflow: hidden;
     }
 
@@ -494,17 +518,17 @@
     .cat-col:hover .cat-photo img { transform: scale(1.05); }
 
     .cat-body {
-      padding: 26px 24px 30px;
+      padding: 22px 20px 26px;
       flex: 1;
     }
 
     .cat-title {
       font-family: var(--font-head);
-      font-size: 18px;
-      font-weight: 900;
+      font-size: 17px;
+      font-weight: 800;
       color: var(--text);
-      margin-bottom: 18px;
-      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      letter-spacing: -0.015em;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -525,15 +549,16 @@
     }
 
     .cat-services li {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 500;
       color: var(--muted);
-      padding: 8px 0;
+      padding: 7px 0;
       border-bottom: 1px solid var(--gray);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       transition: color .15s;
+      line-height: 1.4;
     }
 
     .cat-services li:last-child { border-bottom: none; }
@@ -551,6 +576,7 @@
     .cat-col:nth-child(1) .cat-title { color: var(--red); }
     .cat-col:nth-child(2) .cat-title { color: var(--blue); }
     .cat-col:nth-child(3) .cat-title { color: var(--green); }
+    .cat-col:nth-child(4) .cat-title { color: var(--dark); }
 
     /* ── NIBE ── */
     #nibe {
@@ -713,10 +739,136 @@
       line-height: 1.6;
     }
 
-    /* ── RECHNER ── */
+    /* ── PROJEKTE / VORHER NACHHER ── */
+    #projekte {
+      padding: 100px 48px;
+      background: var(--white);
+    }
+
+    .projekte-header {
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+
+    .projekte-header .section-title { color: var(--text); }
+    .projekte-header .section-body { color: var(--muted); margin-top: 6px; }
+
+    .projekte-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .projekt-card {
+      background: var(--white);
+      border: 1px solid var(--gray2);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: box-shadow .25s, transform .25s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .projekt-card:hover {
+      box-shadow: 0 12px 36px oklch(0% 0 0 / .08);
+      transform: translateY(-3px);
+    }
+
+    .ba-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--gray2);
+      aspect-ratio: 16 / 10;
+    }
+
+    .ba-img {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, oklch(94% 0.005 230), oklch(89% 0.008 230));
+    }
+
+    .ba-img.ba-nachher {
+      background: linear-gradient(135deg, oklch(94% 0.012 255), oklch(90% 0.018 255));
+    }
+
+    .ba-img::after {
+      content: attr(data-label);
+      position: absolute;
+      top: 12px; left: 12px;
+      background: oklch(20% 0.01 230 / .82);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      border-radius: 5px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .ba-img.ba-nachher::after {
+      background: var(--blue);
+    }
+
+    .ba-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ba-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ba-placeholder span {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 600;
+      color: oklch(55% 0.01 230);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      opacity: .7;
+    }
+
+    .projekt-meta {
+      padding: 18px 22px 20px;
+    }
+
+    .projekt-meta h3 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .projekt-meta p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .projekte-note {
+      margin-top: 36px;
+      text-align: center;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: .02em;
+    }
+
+    /* ── RECHNER (deprecated, kept for safety) ── */
     #rechner {
       padding: 100px 48px;
       background: var(--white);
+      display: none;
     }
 
     #rechner .section-eyebrow { color: var(--red); }
@@ -1143,7 +1295,7 @@
 
     .modal-close:hover { background: var(--gray2); }
 
-    .modal h2 { font-size: 26px; font-weight: 900; margin-bottom: 24px; letter-spacing: -0.02em; }
+    .modal h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.025em; }
     .modal h3 { font-size: 14px; font-weight: 700; margin: 22px 0 6px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-family: var(--font-head); }
     .modal p, .modal li { font-size: 14px; color: var(--muted); line-height: 1.8; }
     .modal ul { padding-left: 20px; }
@@ -1176,7 +1328,10 @@
       /* services: 2 columns on tablets */
       .services-cats { grid-template-columns: repeat(2, 1fr); }
 
-      #about, #services, #foerderung, #rechner, #kontakt { padding: 72px 24px; }
+      /* projekte: 1 column on tablets */
+      .projekte-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      #about, #services, #foerderung, #projekte, #kontakt { padding: 72px 24px; }
       #nibe { padding: 64px 24px; }
       footer { padding: 40px 24px; }
 
@@ -1292,7 +1447,7 @@
     @media (max-width: 640px) {
       .nav-logo-text span { display: none; }
 
-      #about, #services, #foerderung, #rechner, #kontakt { padding: 60px 18px; }
+      #about, #services, #foerderung, #projekte, #kontakt { padding: 60px 18px; }
       #nibe { padding: 56px 18px; }
       footer { padding: 36px 18px; }
       .hero-content { padding: 0 18px 56px; }
@@ -1308,7 +1463,7 @@
       .cf-group select,
       .cf-group textarea { font-size: 16px; }
 
-      .hero-content h1 { font-size: 34px; line-height: 1.1; }
+      .hero-content h1 { font-size: 30px; line-height: 1.12; }
       .trust-bar { display: none; }
 
       .about-mosaic img:first-child { grid-row: auto; }
@@ -1327,7 +1482,7 @@
     }
 
     @media (max-width: 400px) {
-      .hero-content h1 { font-size: 30px; }
+      .hero-content h1 { font-size: 26px; }
       nav { padding: 0 14px; }
       .nav-logo img { height: 36px; }
       .nav-logo-text strong { font-size: 12px; }
@@ -1349,7 +1504,7 @@
     <li><a href="#about">Über uns</a></li>
     <li><a href="#services">Leistungen</a></li>
     <li><a href="#nibe" class="nav-nibe">NIBE</a></li>
-    <li><a href="#rechner">Rechner</a></li>
+    <li><a href="#projekte">Projekte</a></li>
     <li><a href="#kontakt" class="nav-cta">Anfrage senden</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
@@ -1363,10 +1518,10 @@
   <div class="hero-content">
     <p class="hero-location">Pforzheim</p>
     <h1>
-      Ihr Fachbetrieb für<br>
-      <span class="col-red">Heizung</span> ·
-      <span class="col-blue">Sanitär</span> ·
-      <span class="col-green">Lüftung</span>
+      Fachbetrieb für
+      <span class="trade-list">
+        <span>Heizung</span><span>Sanitär</span><span>Lüftung</span>
+      </span>
     </h1>
     <p class="hero-sub">Gas- und Wasserinstallationen mit umfassender Beratung, hochwertiger Arbeit und durchgehendem Service – alles aus einer Hand.</p>
     <div class="hero-actions">
@@ -1399,20 +1554,7 @@
         <h2 class="section-title">Selman Orhan Sanitär &amp; Heizung</h2>
         <p>Ihr vielseitiger Fachbetrieb aus Pforzheim – der mit viel Sorgfalt Ihre Gas- und Wasserinstallationen übernimmt.</p>
         <p>Bei uns erhalten Sie eine umfassende Beratung, hochwertige Arbeit, durchgehende Betreuung und umfangreichen Service. Von der Bestandsaufnahme über die Planung bis zur fertigen Anlage – alles aus einer Hand.</p>
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-num">14+</div>
-            <div class="stat-label">Leistungen</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">SHK</div>
-            <div class="stat-label">Meisterbetrieb</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Fachbetrieb</div>
-          </div>
-        </div>
+        <a href="#kontakt" class="about-link">Projekt besprechen <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -1444,7 +1586,6 @@
             <li>Badsanierung</li>
             <li>Barrierefreie Bäder</li>
             <li>Sanitärtechnik</li>
-            <li>Neubauinstallation</li>
           </ul>
         </div>
       </div>
@@ -1457,10 +1598,9 @@
           <h3 class="cat-title">Heizung &amp; Energie</h3>
           <ul class="cat-services">
             <li>Wärmepumpe</li>
-            <li>Heiztechnik &amp; Wartung</li>
+            <li>Brennwerttechnik</li>
             <li>Pellet-Heizkessel</li>
             <li>Fußbodenheizung</li>
-            <li>Brennwerttechnik</li>
             <li>Solarthermie</li>
             <li>Erneuerbare Energien</li>
           </ul>
@@ -1469,16 +1609,32 @@
 
       <div class="cat-col reveal reveal-d2">
         <div class="cat-photo">
-          <img src="selman_orhan_bild_22.jpg" alt="Lüftung und Service">
+          <img src="selman_orhan_bild_22.jpg" alt="Lüftung">
         </div>
         <div class="cat-body">
-          <h3 class="cat-title">Lüftung &amp; Service</h3>
+          <h3 class="cat-title">Lüftung</h3>
           <ul class="cat-services">
-            <li>Wohnraumlüftung</li>
-            <li>Wärmerückgewinnung</li>
-            <li>Kundendienst &amp; Notfall</li>
-            <li>Förderberatung</li>
+            <li>Kontrollierte Wohnraumlüftung</li>
+            <li>Lüftung mit Wärmerückgewinnung</li>
+            <li>Zentrale &amp; dezentrale Systeme</li>
+            <li>Frischluft- &amp; Pollenfilterung</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cat-col reveal reveal-d3">
+        <div class="cat-photo">
+          <img src="selman_orhan_bild_18.jpg" alt="Service und Kundendienst">
+        </div>
+        <div class="cat-body">
+          <h3 class="cat-title">Service</h3>
+          <ul class="cat-services">
+            <li>Kundendienst &amp; Notfalldienst</li>
             <li>Wartungsverträge</li>
+            <li>Förderberatung</li>
+            <li>Neubauinstallation</li>
+            <li>Altbauinstallation</li>
+            <li>Projektbegleitung</li>
           </ul>
         </div>
       </div>
@@ -1549,107 +1705,65 @@
   </div>
 </section>
 
-<!-- RECHNER -->
-<section id="rechner">
+<!-- PROJEKTE / VORHER NACHHER -->
+<section id="projekte">
   <div class="container">
-    <div class="rechner-intro">
+    <div class="projekte-header">
       <div class="reveal">
-        <span class="section-eyebrow">Kostenloser Rechner</span>
-        <h2 class="section-title">Bad- &amp; Heizungsrechner</h2>
-        <p class="section-body" style="color:var(--muted);">Erhalten Sie eine erste Kostenschätzung – unverbindlich und kostenlos. Für ein genaues Angebot sprechen Sie uns einfach an.</p>
-      </div>
-    </div>
-    <div class="rechner-tabs reveal">
-      <button class="tab-btn active" onclick="switchTab('bad')">Bad-Rechner</button>
-      <button class="tab-btn" onclick="switchTab('heizung')">Heizungsrechner</button>
-    </div>
-
-    <div class="tab-panel active" id="panel-bad">
-      <div class="rechner-form reveal">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Badezimmer-Größe (m²)</label>
-            <input type="number" id="bad-qm" placeholder="z. B. 8" min="2" max="60">
-          </div>
-          <div class="form-group">
-            <label>Ausstattungsniveau</label>
-            <select id="bad-level">
-              <option value="einfach">Einfach / Funktional</option>
-              <option value="standard" selected>Standard</option>
-              <option value="gehoben">Gehoben / Modern</option>
-              <option value="premium">Premium / Luxus</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Art der Maßnahme</label>
-            <select id="bad-art">
-              <option value="komplett">Komplette Sanierung</option>
-              <option value="teilsanierung">Teilsanierung</option>
-              <option value="neubau">Neubau</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Barrierefrei gewünscht?</label>
-            <select id="bad-barriere">
-              <option value="nein">Nein</option>
-              <option value="ja">Ja (+15%)</option>
-            </select>
-          </div>
-        </div>
-        <button class="calc-btn" onclick="calcBad()">Schätzung berechnen</button>
-        <div class="calc-result" id="bad-result">
-          <h4>Ihre unverbindliche Kostenschätzung</h4>
-          <div id="bad-result-rows"></div>
-          <p class="result-note">Richtwerte ohne Gewähr. Für ein verbindliches Angebot kontaktieren Sie uns direkt.</p>
-        </div>
+        <span class="section-eyebrow">Referenzen</span>
+        <h2 class="section-title">Vorher · Nachher</h2>
+        <p class="section-body">Ein Auszug aus unseren Projekten. Von der Bestandsaufnahme bis zur fertigen Anlage – sehen Sie die Verwandlung.</p>
       </div>
     </div>
 
-    <div class="tab-panel" id="panel-heizung">
-      <div class="rechner-form reveal">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Wohnfläche (m²)</label>
-            <input type="number" id="heiz-qm" placeholder="z. B. 150" min="30" max="800">
+    <div class="projekte-grid">
+      <article class="projekt-card reveal">
+        <div class="ba-pair">
+          <div class="ba-img ba-vorher" data-label="Vorher">
+            <div class="ba-placeholder"><span>Bild folgt</span></div>
           </div>
-          <div class="form-group">
-            <label>Baujahr des Gebäudes</label>
-            <select id="heiz-baujahr">
-              <option value="alt">Vor 1980 (Altbau)</option>
-              <option value="mittel">1980–2000</option>
-              <option value="modern" selected>2000–2015</option>
-              <option value="neu">Ab 2015 (Neubau)</option>
-            </select>
+          <div class="ba-img ba-nachher" data-label="Nachher">
+            <div class="ba-placeholder"><span>Bild folgt</span></div>
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Gewünschtes Heizsystem</label>
-            <select id="heiz-typ">
-              <option value="waermepumpe">Wärmepumpe</option>
-              <option value="brennwert">Brennwertkessel (Gas)</option>
-              <option value="pellet">Pelletkessel</option>
-              <option value="solar">Solar + Heizungsunterstützung</option>
-            </select>
+        <div class="projekt-meta">
+          <h3>Badsanierung</h3>
+          <p>Komplette Modernisierung · Pforzheim</p>
+        </div>
+      </article>
+
+      <article class="projekt-card reveal reveal-d1">
+        <div class="ba-pair">
+          <div class="ba-img ba-vorher" data-label="Vorher">
+            <div class="ba-placeholder"><span>Bild folgt</span></div>
           </div>
-          <div class="form-group">
-            <label>Fußbodenheizung vorhanden?</label>
-            <select id="heiz-fbh">
-              <option value="nein">Nein</option>
-              <option value="ja">Ja</option>
-            </select>
+          <div class="ba-img ba-nachher" data-label="Nachher">
+            <div class="ba-placeholder"><span>Bild folgt</span></div>
           </div>
         </div>
-        <button class="calc-btn" onclick="calcHeizung()">Schätzung berechnen</button>
-        <div class="calc-result" id="heiz-result">
-          <h4>Ihre unverbindliche Kostenschätzung</h4>
-          <div id="heiz-result-rows"></div>
-          <p class="result-note">Richtwerte ohne Gewähr. Für ein verbindliches Angebot kontaktieren Sie uns direkt.</p>
+        <div class="projekt-meta">
+          <h3>Heizungstausch</h3>
+          <p>Wärmepumpe ersetzt Gasheizung</p>
         </div>
-      </div>
+      </article>
+
+      <article class="projekt-card reveal reveal-d2">
+        <div class="ba-pair">
+          <div class="ba-img ba-vorher" data-label="Vorher">
+            <div class="ba-placeholder"><span>Bild folgt</span></div>
+          </div>
+          <div class="ba-img ba-nachher" data-label="Nachher">
+            <div class="ba-placeholder"><span>Bild folgt</span></div>
+          </div>
+        </div>
+        <div class="projekt-meta">
+          <h3>Barrierefreies Bad</h3>
+          <p>Bodengleiche Dusche · Altbau</p>
+        </div>
+      </article>
     </div>
+
+    <p class="projekte-note reveal">Weitere Referenzen auf Anfrage.</p>
   </div>
 </section>
 
