@@ -842,18 +842,19 @@
     }
 
     .foerderung-icon {
-      width: 40px; height: 40px;
+      width: 42px; height: 42px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
       flex-shrink: 0;
     }
 
-    .foerderung-icon.green { background: var(--green-bg); }
-    .foerderung-icon.blue  { background: var(--blue-bg); }
-    .foerderung-icon.red   { background: var(--red-bg); }
+    .foerderung-icon svg { width: 20px; height: 20px; display: block; }
+
+    .foerderung-icon.green { background: var(--green-bg); color: var(--green); }
+    .foerderung-icon.blue  { background: var(--blue-bg);  color: var(--blue); }
+    .foerderung-icon.red   { background: var(--red-bg);   color: var(--red); }
 
     .foerderung-item h3 {
       font-family: var(--font-head);
@@ -1102,9 +1103,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
       flex-shrink: 0;
+      color: var(--text);
     }
+
+    .info-icon svg { width: 19px; height: 19px; display: block; }
 
     .info-block-text strong {
       display: block;
@@ -1366,9 +1369,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 17px;
         flex-shrink: 0;
+        color: var(--white);
       }
+
+      .mobile-bar-call-icon svg { width: 17px; height: 17px; display: block; }
 
       .mobile-bar-call strong {
         display: block;
@@ -1645,28 +1650,36 @@
       </div>
       <div class="foerderung-items reveal reveal-d1">
         <div class="foerderung-item">
-          <div class="foerderung-icon green">🏦</div>
+          <div class="foerderung-icon green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7.5a8.5 8.5 0 1 0 0 9"/><path d="M3 10h10"/><path d="M3 14h10"/></svg>
+          </div>
           <div>
             <h3>BAFA Bundesförderung</h3>
             <p>Für Wärmepumpen, Solarthermie und weitere erneuerbare Heizsysteme – attraktive Zuschüsse vom Bund.</p>
           </div>
         </div>
         <div class="foerderung-item">
-          <div class="foerderung-icon blue">🏗️</div>
+          <div class="foerderung-icon blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-4v-7h-8v7H4a1 1 0 0 1-1-1z"/><path d="M12 13v-3"/><path d="m9.5 12 2.5-2.5L14.5 12"/></svg>
+          </div>
           <div>
             <h3>KfW-Programm</h3>
             <p>Günstige Kredite und Tilgungszuschüsse für energetische Sanierung, Heizungsaustausch und Neubau.</p>
           </div>
         </div>
         <div class="foerderung-item">
-          <div class="foerderung-icon red">☀️</div>
+          <div class="foerderung-icon red" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
+          </div>
           <div>
             <h3>Solarthermie-Zuschuss</h3>
             <p>Solaranlage für Warmwasser und Heizungsunterstützung – mit staatlicher Förderung deutlich günstiger.</p>
           </div>
         </div>
         <div class="foerderung-item">
-          <div class="foerderung-icon green">💡</div>
+          <div class="foerderung-icon green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
           <div>
             <h3>Persönliche Beratung</h3>
             <p>Wir prüfen gemeinsam, welche Fördermaßnahmen für Ihr Projekt in Frage kommen.</p>
@@ -1794,14 +1807,18 @@
       <div class="contact-info reveal reveal-d1">
         <h3>So erreichen Sie uns</h3>
         <div class="info-block">
-          <div class="info-icon">📍</div>
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
           <div class="info-block-text">
             <strong>Adresse</strong>
             <p>Selman Orhan – Fachbetrieb für Sanitär &amp; Heizung<br>Tiergartenstraße 15, 75175 Pforzheim</p>
           </div>
         </div>
         <div class="info-block">
-          <div class="info-icon">📞</div>
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
           <div class="info-block-text">
             <strong>Telefon</strong>
             <a href="tel:+4972311884648">07231-1884648</a><br>
@@ -1809,14 +1826,18 @@
           </div>
         </div>
         <div class="info-block">
-          <div class="info-icon">✉</div>
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </div>
           <div class="info-block-text">
             <strong>E-Mail</strong>
             <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a>
           </div>
         </div>
         <div class="info-block">
-          <div class="info-icon">🕐</div>
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
           <div class="info-block-text">
             <strong>Öffnungszeiten</strong>
             <p>Mo – Fr: 07:00 – 18:00 Uhr<br>Samstag: 09:00 – 13:00 Uhr</p>
@@ -1863,7 +1884,7 @@
 <!-- IMPRESSUM MODAL -->
 <div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event,'impressum')" role="dialog" aria-modal="true" aria-labelledby="modal-impressum-title" aria-hidden="true">
   <div class="modal" role="document">
-    <button class="modal-close" onclick="closeModal('impressum')" aria-label="Impressum schließen">✕</button>
+    <button class="modal-close" onclick="closeModal('impressum')" aria-label="Impressum schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     <h2 id="modal-impressum-title">Impressum</h2>
     <h3>Angaben gemäß § 5 TMG</h3>
     <p>Selman Orhan<br>Anlagenmechaniker SHK<br>Tiergartenstraße 15<br>75175 Pforzheim</p>
@@ -1879,7 +1900,7 @@
 <!-- DATENSCHUTZ MODAL -->
 <div class="modal-overlay" id="modal-datenschutz" onclick="closeModalOutside(event,'datenschutz')" role="dialog" aria-modal="true" aria-labelledby="modal-datenschutz-title" aria-hidden="true">
   <div class="modal" role="document">
-    <button class="modal-close" onclick="closeModal('datenschutz')" aria-label="Datenschutzerklärung schließen">✕</button>
+    <button class="modal-close" onclick="closeModal('datenschutz')" aria-label="Datenschutzerklärung schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     <h2 id="modal-datenschutz-title">Datenschutzerklärung</h2>
     <h3>Verantwortlicher</h3>
     <p>Selman Orhan · Anlagenmechaniker SHK<br>Tiergartenstraße 15 · 75175 Pforzheim<br>Telefon: 07231-1884648<br>E-Mail: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
@@ -1907,7 +1928,9 @@
 <!-- MOBILE STICKY BAR -->
 <div class="mobile-bar">
   <a href="tel:+4972311884648" class="mobile-bar-call">
-    <div class="mobile-bar-call-icon">📞</div>
+    <div class="mobile-bar-call-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
     <div>
       <strong>07231-1884648</strong>
       <span>Mo–Fr 07–18 · Sa 09–13</span>
