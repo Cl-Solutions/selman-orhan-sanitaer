@@ -218,47 +218,68 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      padding: 0 64px 72px;
-      max-width: 820px;
+      padding: 0 64px 80px;
+      max-width: 1100px;
+      width: 100%;
       color: var(--white);
     }
 
-    .hero-location {
-      display: flex;
-      align-items: center;
-      gap: 7px;
+    .hero-stamp {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 14px;
       font-family: var(--font-head);
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .12em;
+      font-weight: 700;
+      letter-spacing: .22em;
       text-transform: uppercase;
-      color: oklch(80% 0.006 18);
-      margin-bottom: 20px;
+      color: var(--white);
+      margin-bottom: 32px;
+      padding: 8px 16px;
+      border: 1px solid oklch(100% 0 0 / .25);
+      border-radius: 2px;
     }
 
-    .hero-location::before {
-      content: '';
-      width: 24px; height: 1px;
-      background: oklch(70% 0.006 18);
+    .hero-stamp .stamp-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      align-self: center;
     }
 
     .hero-content h1 {
-      font-size: clamp(34px, 5.2vw, 62px);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 22px;
+      font-size: clamp(56px, 11vw, 148px);
+      font-weight: 800;
+      line-height: .92;
+      letter-spacing: -0.045em;
+      margin-bottom: 28px;
+    }
+
+    .hero-content h1 .h1-prelude {
+      display: block;
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      color: oklch(78% 0.006 18);
+      text-transform: none;
+      margin-bottom: 14px;
+      line-height: 1.3;
     }
 
     .hero-content h1 .trade-list {
       display: block;
-      font-weight: 500;
-      color: oklch(92% 0.005 18);
-      letter-spacing: -0.005em;
-      margin-top: 6px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.05em;
     }
 
-    .hero-content h1 .trade-list span + span { margin-left: .5em; }
+    .hero-content h1 .trade-list .slash {
+      display: inline-block;
+      color: var(--red);
+      font-weight: 800;
+      transform: translateY(-0.04em);
+    }
 
     .hero-sub {
       font-size: clamp(15px, 1.6vw, 17px);
@@ -310,50 +331,64 @@
 
     /* ── TRUST BAR ── */
     .trust-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--gray2);
-      padding: 18px 48px;
+      background: var(--dark);
+      color: var(--white);
+      padding: 22px 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 48px;
+      gap: 0;
       flex-wrap: wrap;
       list-style: none;
+      border-bottom: 3px solid var(--red);
     }
 
     .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       font-family: var(--font-head);
       font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: .01em;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 0 28px;
+      position: relative;
     }
 
-    .trust-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--red);
-      flex-shrink: 0;
+    .trust-item + .trust-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 14px;
+      background: oklch(100% 0 0 / .25);
     }
-
-    .trust-dot.blue { background: var(--blue); }
-    .trust-dot.green { background: var(--green); }
 
     /* ── SECTIONS ── */
     .container { max-width: 1160px; margin: 0 auto; }
 
     .section-eyebrow {
       font-family: var(--font-head);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+      letter-spacing: .04em;
       color: var(--red);
-      display: block;
-      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-eyebrow::before {
+      content: attr(data-num);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--red);
+      letter-spacing: 0;
+      padding-right: 12px;
+      border-right: 1px solid oklch(75% 0.05 26);
     }
 
     .section-title {
@@ -426,6 +461,29 @@
     }
 
     .about-copy p:last-of-type { margin-bottom: 30px; }
+
+    .about-pullquote {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 2.2vw, 30px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 32px 0 30px;
+    }
+
+    .about-pullquote::before {
+      content: '—';
+      display: inline-block;
+      color: var(--red);
+      font-weight: 800;
+      margin-right: 14px;
+    }
+
+    .about-pullquote em {
+      font-style: normal;
+      color: var(--red);
+    }
 
     .about-link {
       display: inline-flex;
@@ -523,25 +581,30 @@
     .cat-body {
       padding: 22px 20px 26px;
       flex: 1;
+      position: relative;
+    }
+
+    .cat-num {
+      position: absolute;
+      top: 22px;
+      right: 20px;
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .02em;
+      opacity: .55;
     }
 
     .cat-title {
       font-family: var(--font-head);
-      font-size: 17px;
+      font-size: 22px;
       font-weight: 800;
       color: var(--text);
-      margin-bottom: 16px;
-      letter-spacing: -0.015em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cat-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--gray2);
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      padding-right: 32px;
     }
 
     .cat-services {
@@ -581,10 +644,28 @@
     .cat-col:nth-child(3) .cat-title { color: var(--green); }
     .cat-col:nth-child(4) .cat-title { color: var(--dark); }
 
-    /* ── NIBE ── */
+    /* ── NIBE — drenched blue ── */
     #nibe {
-      padding: 80px 48px;
-      background: var(--blue-bg);
+      padding: 100px 48px;
+      background: var(--blue);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #nibe::before {
+      content: 'NIBE';
+      position: absolute;
+      right: -2vw;
+      bottom: -3vw;
+      font-family: var(--font-head);
+      font-size: clamp(180px, 22vw, 360px);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      color: oklch(100% 0 0 / .06);
+      line-height: .85;
+      pointer-events: none;
+      user-select: none;
     }
 
     .nibe-grid {
@@ -594,15 +675,18 @@
       grid-template-columns: 1fr 420px;
       gap: 64px;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
-    .nibe-grid .section-eyebrow { color: var(--blue); }
-    .nibe-grid .section-title { color: var(--text); max-width: 520px; }
+    .nibe-grid .section-eyebrow { color: var(--white); }
+    .nibe-grid .section-eyebrow::before { color: var(--white); border-right-color: oklch(100% 0 0 / .35); }
+    .nibe-grid .section-title { color: var(--white); max-width: 520px; }
 
     .nibe-grid p {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.75;
+      font-size: 17px;
+      color: oklch(94% 0.01 255);
+      line-height: 1.65;
       max-width: 540px;
       margin-bottom: 32px;
     }
@@ -611,9 +695,9 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--blue);
-      color: var(--white);
-      padding: 13px 26px;
+      background: var(--white);
+      color: var(--blue);
+      padding: 14px 26px;
       border-radius: 8px;
       font-family: var(--font-head);
       font-size: 14px;
@@ -623,14 +707,13 @@
       letter-spacing: .01em;
     }
 
-    .nibe-btn:hover { background: oklch(40% 0.178 255); transform: translateY(-2px); }
+    .nibe-btn:hover { background: oklch(96% 0.018 255); transform: translateY(-2px); }
 
     .nibe-visual-card {
       background: var(--white);
-      border: 1px solid var(--gray2);
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 4px 24px oklch(0% 0 0 / .07);
+      box-shadow: 0 16px 48px oklch(20% 0.08 255 / .35);
     }
 
     .nibe-visual-card img {
@@ -1305,8 +1388,11 @@
       .cf-group select,
       .cf-group textarea { font-size: 16px; }
 
-      .hero-content h1 { font-size: 30px; line-height: 1.12; }
-      .trust-bar { display: none; }
+      .hero-content h1 { font-size: 52px; line-height: .95; letter-spacing: -0.045em; }
+      .hero-content h1 .h1-prelude { font-size: 15px; margin-bottom: 10px; }
+      .hero-stamp { font-size: 11px; padding: 7px 13px; margin-bottom: 24px; }
+      .trust-bar { padding: 14px 18px; row-gap: 8px; }
+      .trust-item { font-size: 10.5px; padding: 0 12px; letter-spacing: .08em; }
 
       .about-mosaic img:first-child { grid-row: auto; }
       .about-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px; }
@@ -1319,7 +1405,7 @@
     }
 
     @media (max-width: 400px) {
-      .hero-content h1 { font-size: 26px; }
+      .hero-content h1 { font-size: 44px; }
       nav { padding: 0 14px; }
       .nav-logo img { height: 36px; }
       .nav-logo-text strong { font-size: 12px; }
@@ -1353,12 +1439,10 @@
 <section id="home">
   <div class="hero-bg" role="img" aria-label="Modernes Badezimmer, Selman Orhan Sanitär"></div>
   <div class="hero-content">
-    <p class="hero-location">Pforzheim</p>
+    <div class="hero-stamp"><span class="stamp-dot" aria-hidden="true"></span>Pforzheim</div>
     <h1>
-      Fachbetrieb für
-      <span class="trade-list">
-        <span>Heizung</span><span>Sanitär</span><span>Lüftung</span>
-      </span>
+      <span class="h1-prelude">Fachbetrieb für</span>
+      <span class="trade-list">Heizung<span class="slash">/</span>Sanitär<span class="slash">/</span>Lüftung</span>
     </h1>
     <p class="hero-sub">Gas- und Wasserinstallationen mit umfassender Beratung, hochwertiger Arbeit und durchgehendem Service – alles aus einer Hand.</p>
     <div class="hero-actions">
@@ -1370,11 +1454,10 @@
 
 <!-- TRUST BAR -->
 <ul class="trust-bar" aria-label="Qualitätsmerkmale">
-  <li class="trust-item"><span class="trust-dot" aria-hidden="true"></span>SHK Meisterbetrieb</li>
-  <li class="trust-item"><span class="trust-dot blue" aria-hidden="true"></span>NIBE Fachpartner</li>
-  <li class="trust-item"><span class="trust-dot green" aria-hidden="true"></span>14 Leistungsbereiche</li>
-  <li class="trust-item"><span class="trust-dot" aria-hidden="true"></span>Mo–Sa erreichbar</li>
-  <li class="trust-item"><span class="trust-dot blue" aria-hidden="true"></span>Förderberatung inklusive</li>
+  <li class="trust-item">SHK Meisterbetrieb</li>
+  <li class="trust-item">NIBE Fachpartner</li>
+  <li class="trust-item">Mo – Sa erreichbar</li>
+  <li class="trust-item">Förderberatung inklusive</li>
 </ul>
 
 <!-- ÜBER UNS -->
@@ -1387,10 +1470,11 @@
         <img src="selman_orhan_bild_05.jpg" alt="Helles minimalistisches Badezimmer" width="1000" height="600" loading="lazy" decoding="async">
       </div>
       <div class="about-copy reveal reveal-d1">
-        <span class="section-eyebrow">Über uns</span>
+        <span class="section-eyebrow" data-num="01">Über uns</span>
         <h2 class="section-title">Selman Orhan Sanitär &amp; Heizung</h2>
         <p>Ihr vielseitiger Fachbetrieb aus Pforzheim – der mit viel Sorgfalt Ihre Gas- und Wasserinstallationen übernimmt.</p>
-        <p>Bei uns erhalten Sie eine umfassende Beratung, hochwertige Arbeit, durchgehende Betreuung und umfangreichen Service. Von der Bestandsaufnahme über die Planung bis zur fertigen Anlage – alles aus einer Hand.</p>
+        <p class="about-pullquote">Alles aus einer Hand. <em>Vom ersten Gespräch bis zur fertigen Anlage.</em></p>
+        <p>Bei uns erhalten Sie eine umfassende Beratung, hochwertige Arbeit und durchgehende Betreuung. Bestandsaufnahme, Planung, Installation, Wartung – alles bei einem Ansprechpartner.</p>
         <a href="#kontakt" class="about-link">Projekt besprechen <span aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -1402,7 +1486,7 @@
   <div class="container">
     <div class="services-header">
       <div class="reveal">
-        <span class="section-eyebrow">Was wir bieten</span>
+        <span class="section-eyebrow" data-num="02">Was wir bieten</span>
         <h2 class="section-title">Unsere Leistungen</h2>
       </div>
       <a href="tel:+4972311884648" class="services-phone reveal reveal-d1">
@@ -1417,6 +1501,7 @@
           <img src="selman_orhan_bild_05.jpg" alt="Sanitär und Bad" width="1000" height="600" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
+          <span class="cat-num">01</span>
           <h3 class="cat-title">Sanitär &amp; Bad</h3>
           <ul class="cat-services">
             <li>Badgestaltung &amp; Planung</li>
@@ -1432,6 +1517,7 @@
           <img src="selman_orhan_bild_11.jpg" alt="Heizung und Energie" width="600" height="400" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
+          <span class="cat-num">02</span>
           <h3 class="cat-title">Heizung &amp; Energie</h3>
           <ul class="cat-services">
             <li>Wärmepumpe</li>
@@ -1449,6 +1535,7 @@
           <img src="selman_orhan_bild_22.jpg" alt="Lüftung" width="1024" height="683" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
+          <span class="cat-num">03</span>
           <h3 class="cat-title">Lüftung</h3>
           <ul class="cat-services">
             <li>Kontrollierte Wohnraumlüftung</li>
@@ -1464,6 +1551,7 @@
           <img src="selman_orhan_bild_18.jpg" alt="Service und Kundendienst" width="1600" height="800" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
+          <span class="cat-num">04</span>
           <h3 class="cat-title">Service</h3>
           <ul class="cat-services">
             <li>Kundendienst &amp; Notfalldienst</li>
@@ -1484,7 +1572,7 @@
 <section id="nibe">
   <div class="nibe-grid">
     <div class="reveal">
-      <span class="section-eyebrow">Unser Systempartner</span>
+      <span class="section-eyebrow" data-num="03">Systempartner</span>
       <h2 class="section-title">NIBE Wärmepumpen</h2>
       <p>Als qualifizierter Fachbetrieb installieren wir NIBE Wärmepumpen – eine der führenden Marken für energieeffiziente Heizsysteme. NIBE steht für hochwertige Technologie, lange Lebensdauer und maximale Effizienz. Wir beraten Sie gerne zur passenden Anlage für Ihr Gebäude.</p>
       <a href="https://www.nibe.de" target="_blank" rel="noopener noreferrer" class="nibe-btn">
@@ -1503,7 +1591,7 @@
   <div class="container">
     <div class="foerderung-layout">
       <div class="foerderung-intro reveal">
-        <span class="section-eyebrow">Zuschüsse &amp; Förderung</span>
+        <span class="section-eyebrow" data-num="04">Zuschüsse</span>
         <h2 class="section-title">Wir haben Ihre Kosten im Blick</h2>
         <p>Wir informieren Sie im Voraus über wichtige Förderungen und Zuschüsse – besonders im Bereich Heizungssanierung. Sie müssen sich um nichts kümmern.</p>
         <a href="#kontakt" class="foerderung-cta">Jetzt beraten lassen →</a>
@@ -1547,7 +1635,7 @@
   <div class="container">
     <div class="projekte-header">
       <div class="reveal">
-        <span class="section-eyebrow">Referenzen</span>
+        <span class="section-eyebrow" data-num="05">Referenzen</span>
         <h2 class="section-title">Vorher · Nachher</h2>
         <p class="section-body">Ein Auszug aus unseren Projekten. Von der Bestandsaufnahme bis zur fertigen Anlage – sehen Sie die Verwandlung.</p>
       </div>
@@ -1607,7 +1695,7 @@
 <!-- KONTAKT -->
 <section id="kontakt">
   <div class="container">
-    <span class="section-eyebrow reveal">Kontakt</span>
+    <span class="section-eyebrow reveal" data-num="06">Kontakt</span>
     <h2 class="section-title reveal reveal-d1">Anfrage senden</h2>
     <div class="kontakt-grid">
       <div class="contact-form reveal">
