@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selman Orhan Sanitär – Heizung · Sanitär · Lüftung · Service · Pforzheim</title>
   <meta name="description" content="Ihr Fachbetrieb für Sanitär, Heizung, Lüftung und Solar in Pforzheim. Gas- und Wasserinstallationen, Badsanierung, Wärmepumpen. Jetzt Anfrage senden!">
+  <meta name="theme-color" content="#1f2530">
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="apple-touch-icon" href="Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="selman_orhan_bild_02.jpg" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,7 +36,39 @@
       --font-body:  'Work Sans', system-ui, sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+    /* ── FOCUS RING (keyboard only, not on mouse-click) ── */
+    :focus { outline: none; }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .btn-primary:focus-visible,
+    .nibe-btn:focus-visible,
+    .submit-btn:focus-visible,
+    .nav-cta:focus-visible,
+    .mobile-bar-contact:focus-visible {
+      outline-color: var(--white);
+      outline-offset: 2px;
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
 
     body {
       font-family: var(--font-body);
@@ -282,6 +318,7 @@
       justify-content: center;
       gap: 48px;
       flex-wrap: wrap;
+      list-style: none;
     }
 
     .trust-item {
@@ -406,40 +443,6 @@
     }
 
     .about-link:hover { border-color: var(--red); gap: 14px; }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--gray2);
-      border: 1px solid var(--gray2);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .stat {
-      background: var(--white);
-      padding: 20px 16px;
-      text-align: center;
-    }
-
-    .stat-num {
-      font-family: var(--font-head);
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--red);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
-      margin-top: 5px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
 
     /* ── DIENSTLEISTUNGEN ── */
     #services {
@@ -864,160 +867,6 @@
       letter-spacing: .02em;
     }
 
-    /* ── RECHNER (deprecated, kept for safety) ── */
-    #rechner {
-      padding: 100px 48px;
-      background: var(--white);
-      display: none;
-    }
-
-    #rechner .section-eyebrow { color: var(--red); }
-    #rechner .section-title { color: var(--text); }
-
-    .rechner-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .rechner-tabs {
-      display: flex;
-      gap: 0;
-      background: var(--gray2);
-      border-radius: 10px;
-      padding: 4px;
-      width: fit-content;
-      margin: 32px 0 36px;
-    }
-
-    .tab-btn {
-      padding: 10px 24px;
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font-family: var(--font-head);
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      border-radius: 7px;
-      transition: .2s;
-      letter-spacing: .01em;
-    }
-
-    .tab-btn.active {
-      background: var(--white);
-      color: var(--text);
-      box-shadow: 0 1px 4px oklch(0% 0 0 / .1);
-    }
-
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-
-    .rechner-form {
-      background: var(--gray);
-      border: 1px solid var(--gray2);
-      border-radius: 14px;
-      padding: 36px;
-      max-width: 680px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .form-group label {
-      font-family: var(--font-head);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--muted);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .form-group input,
-    .form-group select {
-      background: var(--white);
-      border: 1.5px solid var(--gray2);
-      border-radius: 8px;
-      color: var(--text);
-      font-size: 15px;
-      font-family: var(--font-body);
-      padding: 11px 13px;
-      outline: none;
-      transition: border-color .2s;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus { border-color: var(--red); }
-
-    .form-group select option { background: var(--white); color: var(--text); }
-
-    .calc-btn {
-      background: var(--green);
-      color: var(--white);
-      border: none;
-      padding: 13px 28px;
-      border-radius: 8px;
-      font-family: var(--font-head);
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s, transform .15s cubic-bezier(0.16,1,0.3,1);
-      margin-top: 8px;
-      letter-spacing: .01em;
-    }
-
-    .calc-btn:hover { background: oklch(45% 0.15 143); transform: translateY(-2px); }
-
-    .calc-result {
-      margin-top: 20px;
-      background: var(--green-bg);
-      border: 1px solid oklch(52% 0.15 143 / .2);
-      border-radius: 10px;
-      padding: 22px;
-      display: none;
-    }
-
-    .calc-result.show { display: block; }
-
-    .calc-result h4 {
-      font-family: var(--font-head);
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--green);
-      letter-spacing: .01em;
-    }
-
-    .result-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 0;
-      border-bottom: 1px solid oklch(52% 0.15 143 / .1);
-      font-size: 14px;
-    }
-
-    .result-row:last-child { border-bottom: none; }
-    .result-row span:last-child { font-weight: 700; color: var(--text); }
-
-    .result-note {
-      margin-top: 12px;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
     /* ── KONTAKT ── */
     #kontakt {
       padding: 100px 48px;
@@ -1351,12 +1200,7 @@
 
       .foerderung-layout { grid-template-columns: 1fr; gap: 40px; }
 
-      .rechner-intro { grid-template-columns: 1fr; gap: 0; }
-      .rechner-tabs { width: 100%; }
-      .tab-btn { flex: 1; text-align: center; padding: 12px 16px; }
-
       .kontakt-grid { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
       .cf-row { grid-template-columns: 1fr; }
 
       .footer-inner { flex-direction: column; text-align: center; }
@@ -1457,8 +1301,6 @@
       .cat-photo { height: 180px; }
 
       /* prevent iOS input zoom (triggers on font-size < 16px) */
-      .form-group input,
-      .form-group select,
       .cf-group input,
       .cf-group select,
       .cf-group textarea { font-size: 16px; }
@@ -1468,11 +1310,6 @@
 
       .about-mosaic img:first-child { grid-row: auto; }
       .about-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px; }
-      .stat { padding: 14px 10px; }
-      .stat-num { font-size: 22px; }
-
-      .rechner-form { padding: 20px 18px; }
-      .calc-btn { width: 100%; }
 
       .contact-form { padding: 22px 18px; }
       .services-phone { font-size: 18px; }
@@ -1494,7 +1331,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">
-    <img src="Logo.png" alt="Selman Orhan Sanitär Logo">
+    <img src="Logo.png" alt="Selman Orhan Sanitär Logo" width="1536" height="1024" decoding="async">
     <div class="nav-logo-text">
       <strong>Selman Orhan Sanitär</strong>
       <span>Heizung · Sanitär · Lüftung · Service</span>
@@ -1532,22 +1369,22 @@
 </section>
 
 <!-- TRUST BAR -->
-<div class="trust-bar" role="list">
-  <div class="trust-item" role="listitem"><span class="trust-dot"></span>SHK Meisterbetrieb</div>
-  <div class="trust-item" role="listitem"><span class="trust-dot blue"></span>NIBE Fachpartner</div>
-  <div class="trust-item" role="listitem"><span class="trust-dot green"></span>14 Leistungsbereiche</div>
-  <div class="trust-item" role="listitem"><span class="trust-dot"></span>Mo–Sa erreichbar</div>
-  <div class="trust-item" role="listitem"><span class="trust-dot blue"></span>Förderberatung inklusive</div>
-</div>
+<ul class="trust-bar" aria-label="Qualitätsmerkmale">
+  <li class="trust-item"><span class="trust-dot" aria-hidden="true"></span>SHK Meisterbetrieb</li>
+  <li class="trust-item"><span class="trust-dot blue" aria-hidden="true"></span>NIBE Fachpartner</li>
+  <li class="trust-item"><span class="trust-dot green" aria-hidden="true"></span>14 Leistungsbereiche</li>
+  <li class="trust-item"><span class="trust-dot" aria-hidden="true"></span>Mo–Sa erreichbar</li>
+  <li class="trust-item"><span class="trust-dot blue" aria-hidden="true"></span>Förderberatung inklusive</li>
+</ul>
 
 <!-- ÜBER UNS -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-mosaic reveal">
-        <img src="selman_orhan_bild_15.jpg" alt="Elegantes Badezimmer mit freistehender Wanne">
-        <img src="selman_orhan_bild_03.jpg" alt="Modernes Bad mit Holzakzenten">
-        <img src="selman_orhan_bild_05.jpg" alt="Helles minimalistisches Badezimmer">
+        <img src="selman_orhan_bild_15.jpg" alt="Elegantes Badezimmer mit freistehender Wanne" width="2048" height="1365" loading="lazy" decoding="async">
+        <img src="selman_orhan_bild_03.jpg" alt="Modernes Bad mit Holzakzenten" width="564" height="846" loading="lazy" decoding="async">
+        <img src="selman_orhan_bild_05.jpg" alt="Helles minimalistisches Badezimmer" width="1000" height="600" loading="lazy" decoding="async">
       </div>
       <div class="about-copy reveal reveal-d1">
         <span class="section-eyebrow">Über uns</span>
@@ -1577,7 +1414,7 @@
 
       <div class="cat-col reveal">
         <div class="cat-photo">
-          <img src="selman_orhan_bild_05.jpg" alt="Sanitär und Bad">
+          <img src="selman_orhan_bild_05.jpg" alt="Sanitär und Bad" width="1000" height="600" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
           <h3 class="cat-title">Sanitär &amp; Bad</h3>
@@ -1592,7 +1429,7 @@
 
       <div class="cat-col reveal reveal-d1">
         <div class="cat-photo">
-          <img src="selman_orhan_bild_11.jpg" alt="Heizung und Energie">
+          <img src="selman_orhan_bild_11.jpg" alt="Heizung und Energie" width="600" height="400" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
           <h3 class="cat-title">Heizung &amp; Energie</h3>
@@ -1609,7 +1446,7 @@
 
       <div class="cat-col reveal reveal-d2">
         <div class="cat-photo">
-          <img src="selman_orhan_bild_22.jpg" alt="Lüftung">
+          <img src="selman_orhan_bild_22.jpg" alt="Lüftung" width="1024" height="683" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
           <h3 class="cat-title">Lüftung</h3>
@@ -1624,7 +1461,7 @@
 
       <div class="cat-col reveal reveal-d3">
         <div class="cat-photo">
-          <img src="selman_orhan_bild_18.jpg" alt="Service und Kundendienst">
+          <img src="selman_orhan_bild_18.jpg" alt="Service und Kundendienst" width="1600" height="800" loading="lazy" decoding="async">
         </div>
         <div class="cat-body">
           <h3 class="cat-title">Service</h3>
@@ -1655,7 +1492,7 @@
       </a>
     </div>
     <div class="nibe-visual-card reveal reveal-d1">
-      <img src="selman_orhan_bild_12.jpg" alt="Wärmepumpe Außeneinheit">
+      <img src="selman_orhan_bild_12.jpg" alt="Wärmepumpe Außeneinheit" width="1500" height="1000" loading="lazy" decoding="async">
       <div class="nibe-card-foot">NIBE Wärmepumpe · Außeneinheit</div>
     </div>
   </div>
@@ -1778,25 +1615,25 @@
         <form id="contactForm" onsubmit="submitForm(event)">
           <div class="cf-row">
             <div class="cf-group">
-              <label>Vorname *</label>
-              <input type="text" name="vorname" required placeholder="Max">
+              <label for="cf-vorname">Vorname *</label>
+              <input id="cf-vorname" type="text" name="vorname" required placeholder="Max" autocomplete="given-name">
             </div>
             <div class="cf-group">
-              <label>Nachname *</label>
-              <input type="text" name="nachname" required placeholder="Mustermann">
+              <label for="cf-nachname">Nachname *</label>
+              <input id="cf-nachname" type="text" name="nachname" required placeholder="Mustermann" autocomplete="family-name">
             </div>
           </div>
           <div class="cf-group">
-            <label>E-Mail-Adresse *</label>
-            <input type="email" name="email" required placeholder="max@beispiel.de">
+            <label for="cf-email">E-Mail-Adresse *</label>
+            <input id="cf-email" type="email" name="email" required placeholder="max@beispiel.de" autocomplete="email">
           </div>
           <div class="cf-group">
-            <label>Telefonnummer</label>
-            <input type="tel" name="telefon" placeholder="0721 123456">
+            <label for="cf-telefon">Telefonnummer</label>
+            <input id="cf-telefon" type="tel" name="telefon" placeholder="0721 123456" autocomplete="tel">
           </div>
           <div class="cf-group">
-            <label>Gewünschte Leistung</label>
-            <select name="leistung">
+            <label for="cf-leistung">Gewünschte Leistung</label>
+            <select id="cf-leistung" name="leistung">
               <option value="">Bitte wählen...</option>
               <option>Badgestaltung / Badsanierung</option>
               <option>Heizungsanlage / Wärmepumpe</option>
@@ -1809,10 +1646,10 @@
             </select>
           </div>
           <div class="cf-group">
-            <label>Nachricht *</label>
-            <textarea name="nachricht" required placeholder="Bitte beschreiben Sie kurz Ihr Anliegen..."></textarea>
+            <label for="cf-nachricht">Nachricht *</label>
+            <textarea id="cf-nachricht" name="nachricht" required placeholder="Bitte beschreiben Sie kurz Ihr Anliegen..."></textarea>
           </div>
-          <button type="submit" class="submit-btn">Anfrage absenden</button>
+          <button type="submit" class="submit-btn" id="submitBtn">Anfrage absenden</button>
         </form>
         <div class="form-success" id="formSuccess">
           <p>Vielen Dank! Wir melden uns schnellstmöglich bei Ihnen.</p>
@@ -1867,7 +1704,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="Logo.png" alt="Logo">
+      <img src="Logo.png" alt="" width="1536" height="1024" loading="lazy" decoding="async">
       <div class="footer-logo-text">
         <strong>Selman Orhan Sanitär</strong>
         <span>Fachbetrieb für Sanitär &amp; Heiztechnik</span>
@@ -1889,10 +1726,10 @@
 </footer>
 
 <!-- IMPRESSUM MODAL -->
-<div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event,'impressum')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('impressum')">✕</button>
-    <h2>Impressum</h2>
+<div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event,'impressum')" role="dialog" aria-modal="true" aria-labelledby="modal-impressum-title" aria-hidden="true">
+  <div class="modal" role="document">
+    <button class="modal-close" onclick="closeModal('impressum')" aria-label="Impressum schließen">✕</button>
+    <h2 id="modal-impressum-title">Impressum</h2>
     <h3>Angaben gemäß § 5 TMG</h3>
     <p>Selman Orhan<br>Anlagenmechaniker SHK<br>Tiergartenstraße 15<br>75175 Pforzheim</p>
     <h3>Kontakt</h3>
@@ -1905,10 +1742,10 @@
 </div>
 
 <!-- DATENSCHUTZ MODAL -->
-<div class="modal-overlay" id="modal-datenschutz" onclick="closeModalOutside(event,'datenschutz')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('datenschutz')">✕</button>
-    <h2>Datenschutzerklärung</h2>
+<div class="modal-overlay" id="modal-datenschutz" onclick="closeModalOutside(event,'datenschutz')" role="dialog" aria-modal="true" aria-labelledby="modal-datenschutz-title" aria-hidden="true">
+  <div class="modal" role="document">
+    <button class="modal-close" onclick="closeModal('datenschutz')" aria-label="Datenschutzerklärung schließen">✕</button>
+    <h2 id="modal-datenschutz-title">Datenschutzerklärung</h2>
     <h3>Verantwortlicher</h3>
     <p>Selman Orhan · Anlagenmechaniker SHK<br>Tiergartenstraße 15 · 75175 Pforzheim<br>Telefon: 07231-1884648<br>E-Mail: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
     <h3>Welche Daten wir erheben</h3>
@@ -2028,6 +1865,10 @@
   /* ── KONTAKTFORMULAR ── */
   function submitForm(e) {
     e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    if (btn.disabled) return;
+    btn.disabled = true;
+    btn.textContent = 'Wird gesendet...';
     const data    = new FormData(document.getElementById('contactForm'));
     const subject = encodeURIComponent('Anfrage über Website: ' + (data.get('leistung') || 'Allgemeine Anfrage'));
     const body    = encodeURIComponent(
@@ -2041,12 +1882,49 @@
     document.getElementById('formSuccess').classList.add('show');
   }
 
-  /* ── MODALS ── */
-  function openModal(name)  { document.getElementById('modal-'+name).classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeModal(name) { document.getElementById('modal-'+name).classList.remove('open'); document.body.style.overflow=''; }
+  /* ── MODALS (focus trap + restore + aria-hidden) ── */
+  let lastFocused = null;
+
+  function getFocusable(modal) {
+    return modal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  }
+
+  function openModal(name) {
+    const m = document.getElementById('modal-' + name);
+    lastFocused = document.activeElement;
+    m.classList.add('open');
+    m.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const focusable = getFocusable(m);
+    if (focusable.length) focusable[0].focus();
+  }
+
+  function closeModal(name) {
+    const m = document.getElementById('modal-' + name);
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  }
+
   function closeModalOutside(e, name) { if (e.target === e.currentTarget) closeModal(name); }
+
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow=''; });
+    const openOne = document.querySelector('.modal-overlay.open');
+    if (!openOne) return;
+    if (e.key === 'Escape') {
+      const id = openOne.id.replace('modal-', '');
+      closeModal(id);
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusable = Array.from(getFocusable(openOne)).filter(el => !el.disabled);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last  = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 </script>
 </body>
