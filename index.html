@@ -1003,19 +1003,18 @@
     .foerderung-item:hover { background: var(--gray); }
 
     .foerderung-icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
+      width: 46px; height: 46px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: var(--white);
-      border: 1.5px solid var(--gray2);
-      color: var(--text);
-      transition: border-color .2s, color .2s;
+      background: var(--dark);
+      color: var(--white);
+      transition: background .3s cubic-bezier(0.16,1,0.3,1), transform .3s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .foerderung-item:hover .foerderung-icon { border-color: var(--red); color: var(--red); }
+    .foerderung-item:hover .foerderung-icon { background: var(--red); transform: scale(1.06); }
 
     .foerderung-icon svg { width: 20px; height: 20px; display: block; }
 
