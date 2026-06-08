@@ -1296,65 +1296,43 @@
       line-height: 1.6;
     }
 
-    .map-embed {
+    .map-static {
       margin-top: 32px;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--gray2);
+      position: relative;
+      display: block;
+      cursor: pointer;
+      transition: box-shadow .25s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .map-embed iframe {
+    .map-static:hover { box-shadow: 0 8px 30px oklch(0% 0 0 / .12); }
+
+    .map-static img {
       width: 100%; height: 240px;
-      border: none; display: block;
+      object-fit: cover;
+      display: block;
     }
 
-    .map-consent {
-      height: 240px;
-      background: var(--gray);
+    .map-static-label {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 8px 14px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      gap: 4px;
-    }
-
-    .map-consent svg { width: 26px; height: 26px; color: var(--muted); margin-bottom: 8px; }
-
-    .map-consent strong {
+      gap: 8px;
+      box-shadow: 0 2px 12px oklch(0% 0 0 / .15);
       font-family: var(--font-head);
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 600;
       color: var(--text);
       letter-spacing: -0.01em;
     }
 
-    .map-consent p {
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.5;
-      max-width: 340px;
-      margin-bottom: 14px;
-    }
-
-    .map-consent p a { color: var(--red); }
-
-    .map-consent-btn {
-      background: var(--text);
-      color: var(--white);
-      border: none;
-      padding: 10px 22px;
-      border-radius: 7px;
-      font-family: var(--font-head);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: .01em;
-      transition: background .2s, transform .15s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .map-consent-btn:hover { background: var(--dark); transform: translateY(-1px); }
+    .map-static-label svg { width: 16px; height: 16px; color: var(--red); flex-shrink: 0; }
 
     .form-success {
       display: none;
@@ -2202,14 +2180,13 @@
             <p>Mo – Fr: 07:00 – 18:00 Uhr<br>Samstag: 09:00 – 13:00 Uhr</p>
           </div>
         </div>
-        <div class="map-embed" id="mapEmbed">
-          <div class="map-consent">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <strong>Standort auf Google Maps</strong>
-            <p>Beim Laden der Karte werden Daten an Google übertragen. Details in der <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutzerklärung</a>.</p>
-            <button type="button" class="map-consent-btn" onclick="loadMap()">Karte laden</button>
-          </div>
-        </div>
+        <a class="map-static" href="https://www.google.com/maps/dir/?api=1&destination=Tiergartenstraße+15,+75175+Pforzheim" target="_blank" rel="noopener" aria-label="Route zu Selman Orhan Sanitär in Google Maps öffnen">
+          <img src="map.jpg" alt="Standort Selman Orhan Sanitär, Tiergartenstraße 15, 75175 Pforzheim" width="800" height="400" loading="lazy">
+          <span class="map-static-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Route planen
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -2300,8 +2277,8 @@
     <h3>7. Kontaktaufnahme</h3>
     <p>Wenn Sie uns über das Kontaktformular, per E-Mail oder telefonisch kontaktieren, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, Telefonnummer – optional – und Ihre Nachricht) zur Bearbeitung Ihrer Anfrage. Das Kontaktformular öffnet Ihr eigenes E-Mail-Programm; es werden keine Daten direkt über die Website übermittelt oder dort gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO. Wir speichern diese Daten, bis der Zweck der Speicherung entfällt, und löschen sie anschließend, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
-    <h3>8. Google Maps</h3>
-    <p>Wir binden Kartenmaterial des Dienstes Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) ein. Die Karte wird <strong>erst nach Ihrer ausdrücklichen Einwilligung</strong> (Klick auf „Karte laden") geladen. Erst dann werden Daten – insbesondere Ihre IP-Adresse – an Google übertragen und ggf. in Drittländer (u.&nbsp;a. USA) weitergegeben. Vor dem Klick findet keine Datenübertragung statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), jederzeit mit Wirkung für die Zukunft widerrufbar.</p>
+    <h3>8. Kartenanzeige</h3>
+    <p>Zur Darstellung unseres Standorts verwenden wir ein statisches Kartenbild auf Basis von <strong>OpenStreetMap</strong>-Daten (© OpenStreetMap-Mitwirkende, ODbL). Das Bild wird lokal von unserem Server geladen; beim Aufruf der Seite findet <strong>keine Datenübertragung an Dritte</strong> statt. Erst wenn Sie auf das Kartenbild klicken, werden Sie zu Google Maps weitergeleitet, um eine Route zu planen. Dabei gelten die Datenschutzbestimmungen von Google.</p>
 
     <h3>9. Eingebettete NIBE-Inhalte</h3>
     <p>Auf unserer Website können Sie optional den Produktkatalog der NIBE Systemtechnik GmbH (Am Reidberg 13, 35799 Merenberg) laden. Diese Inhalte werden erst nach Ihrer ausdrücklichen Einwilligung – durch Klick auf „Katalog laden &amp; anzeigen" – über einen iframe von nibe.onlineshk.de eingebunden. Erst dann werden Daten wie Ihre IP-Adresse an NIBE bzw. dessen Dienstleister übertragen. Vor dem Klick findet keine Datenübertragung statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), jederzeit mit Wirkung für die Zukunft widerrufbar. Weitere Informationen finden Sie in der Datenschutzerklärung von NIBE.</p>
@@ -2535,17 +2512,6 @@
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     wrap.replaceChildren(iframe);
     if (typeof lenis !== 'undefined') lenis.scrollTo(wrap, { offset: -84 }); else wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  /* ── GOOGLE MAPS CONSENT EMBED ── */
-  function loadMap() {
-    const wrap = document.getElementById('mapEmbed');
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2613.8!2d8.7067!3d48.8953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479773b36ad63b91%3A0x4e48c26db5827f2c!2sTiergartenstra%C3%9Fe%2015%2C%2075175%20Pforzheim!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde';
-    iframe.title = 'Standort Selman Orhan Sanitär Pforzheim';
-    iframe.loading = 'lazy';
-    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-    wrap.replaceChildren(iframe);
   }
 
   /* ── MODALS (focus trap + restore + aria-hidden) ── */
