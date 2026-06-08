@@ -2156,7 +2156,6 @@
             <label for="cf-nachricht">Nachricht *</label>
             <textarea id="cf-nachricht" name="nachricht" required placeholder="Bitte beschreiben Sie kurz Ihr Anliegen..."></textarea>
           </div>
-          <input type="text" name="_honey" style="display:none!important" tabindex="-1" autocomplete="off">
           <button type="submit" class="submit-btn" id="submitBtn">Anfrage absenden</button>
         </form>
         <div class="form-success" id="formSuccess">
@@ -2298,10 +2297,8 @@
     <h3>6. Lokale Schriftarten</h3>
     <p>Die verwendeten Schriftarten (Manrope, Work Sans) werden lokal von unserem Server geladen. Es besteht <strong>keine Verbindung zu Servern von Google</strong> oder anderen Dritten. Bei der Darstellung der Schriften werden keine personenbezogenen Daten an Dritte übertragen.</p>
 
-    <h3>7. Kontaktaufnahme / Kontaktformular</h3>
-    <p>Wenn Sie uns über das Kontaktformular, per E-Mail oder telefonisch kontaktieren, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, Telefonnummer – optional – gewünschte Leistung und Ihre Nachricht) zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).</p>
-    <p>Das Kontaktformular nutzt den Dienst <strong>Formsubmit.co</strong> (Spring Jeeva, Toronto, ON, Kanada) zur Übermittlung Ihrer Formulardaten per E-Mail an uns. Bei Absenden des Formulars werden Ihre eingegebenen Daten verschlüsselt (TLS) an die Server von Formsubmit.co übertragen und als E-Mail an uns weitergeleitet. Formsubmit.co speichert die Formulardaten nicht dauerhaft und nutzt sie nicht für eigene Zwecke. Rechtsgrundlage für die Datenübermittlung: Art. 6 Abs. 1 lit. b DSGVO. Weitere Informationen: <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener">Datenschutzerklärung von Formsubmit.co</a>.</p>
-    <p>Wir speichern Ihre Anfrage, bis der Zweck der Speicherung entfällt, und löschen sie anschließend, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+    <h3>7. Kontaktaufnahme</h3>
+    <p>Wenn Sie uns über das Kontaktformular, per E-Mail oder telefonisch kontaktieren, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, Telefonnummer – optional – und Ihre Nachricht) zur Bearbeitung Ihrer Anfrage. Das Kontaktformular öffnet Ihr eigenes E-Mail-Programm; es werden keine Daten direkt über die Website übermittelt oder dort gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO. Wir speichern diese Daten, bis der Zweck der Speicherung entfällt, und löschen sie anschließend, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
     <h3>8. Google Maps</h3>
     <p>Wir binden Kartenmaterial des Dienstes Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) ein. Die Karte wird <strong>erst nach Ihrer ausdrücklichen Einwilligung</strong> (Klick auf „Karte laden") geladen. Erst dann werden Daten – insbesondere Ihre IP-Adresse – an Google übertragen und ggf. in Drittländer (u.&nbsp;a. USA) weitergegeben. Vor dem Klick findet keine Datenübertragung statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), jederzeit mit Wirkung für die Zukunft widerrufbar.</p>
@@ -2461,52 +2458,24 @@
     document.getElementById('heiz-result').classList.add('show');
   }
 
-  /* ── KONTAKTFORMULAR (Formsubmit.co) ── */
+  /* ── KONTAKTFORMULAR ── */
   function submitForm(e) {
     e.preventDefault();
-    const btn  = document.getElementById('submitBtn');
-    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
     if (btn.disabled) return;
     btn.disabled = true;
-    btn.textContent = 'Wird gesendet…';
-
-    const fd = new FormData(form);
-    const payload = {
-      vorname:   fd.get('vorname'),
-      nachname:  fd.get('nachname'),
-      email:     fd.get('email'),
-      telefon:   fd.get('telefon') || '–',
-      leistung:  fd.get('leistung') || 'Allgemeine Anfrage',
-      nachricht: fd.get('nachricht'),
-      _subject:  'Neue Anfrage über Website: ' + (fd.get('leistung') || 'Allgemeine Anfrage'),
-      _template: 'table',
-      _captcha:  'false',
-      _honeypot: ''
-    };
-
-    fetch('https://formsubmit.co/ajax/info@selmanorhan-sanitaer.de', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.success) {
-        form.style.display = 'none';
-        document.getElementById('formSuccess').classList.add('show');
-      } else {
-        throw new Error(data.message || 'Unbekannter Fehler');
-      }
-    })
-    .catch(function(err) {
-      btn.disabled = false;
-      btn.textContent = 'Anfrage absenden';
-      var msg = 'Beim Senden ist ein Fehler aufgetreten. ';
-      msg += 'Bitte versuchen Sie es erneut oder rufen Sie uns direkt an: ';
-      msg += '07231-1884648';
-      alert(msg);
-      console.error('Formular-Fehler:', err);
-    });
+    btn.textContent = 'Wird gesendet...';
+    const data    = new FormData(document.getElementById('contactForm'));
+    const subject = encodeURIComponent('Anfrage über Website: ' + (data.get('leistung') || 'Allgemeine Anfrage'));
+    const body    = encodeURIComponent(
+      `Name: ${data.get('vorname')} ${data.get('nachname')}\n` +
+      `E-Mail: ${data.get('email')}\n` +
+      `Telefon: ${data.get('telefon') || '-'}\n` +
+      `Leistung: ${data.get('leistung') || '-'}\n\nNachricht:\n${data.get('nachricht')}`
+    );
+    window.location.href = `mailto:info@selmanorhan-sanitaer.de?subject=${subject}&body=${body}`;
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
   }
 
   /* ── DATENSCHUTZ-HINWEIS ── */
