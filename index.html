@@ -8,11 +8,45 @@
   <meta name="theme-color" content="#1f2530">
   <link rel="icon" type="image/png" href="Logo.png">
   <link rel="apple-touch-icon" href="Logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="selman_orhan_bild_02.jpg" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/worksans-latin.woff2" crossorigin>
   <style>
+    /* ── SELBST-GEHOSTETE FONTS (kein Google-CDN, keine IP-Übertragung) ── */
+    /* Variable Fonts: eine Datei deckt die Schnitte 400–700 ab */
+    @font-face {
+      font-family: 'Manrope';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('fonts/manrope-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('fonts/manrope-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('fonts/worksans-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('fonts/worksans-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -1228,6 +1262,54 @@
       border: none; display: block;
     }
 
+    .map-consent {
+      height: 240px;
+      background: var(--gray);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      gap: 4px;
+    }
+
+    .map-consent svg { width: 26px; height: 26px; color: var(--muted); margin-bottom: 8px; }
+
+    .map-consent strong {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .map-consent p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 340px;
+      margin-bottom: 14px;
+    }
+
+    .map-consent p a { color: var(--red); }
+
+    .map-consent-btn {
+      background: var(--text);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 7px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .01em;
+      transition: background .2s, transform .15s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .map-consent-btn:hover { background: var(--dark); transform: translateY(-1px); }
+
     .form-success {
       display: none;
       background: var(--green-bg);
@@ -1969,13 +2051,13 @@
             <p>Mo – Fr: 07:00 – 18:00 Uhr<br>Samstag: 09:00 – 13:00 Uhr</p>
           </div>
         </div>
-        <div class="map-embed">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2613.8!2d8.7067!3d48.8953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479773b36ad63b91%3A0x4e48c26db5827f2c!2sTiergartenstra%C3%9Fe%2015%2C%2075175%20Pforzheim!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Standort Selman Orhan Sanitär Pforzheim">
-          </iframe>
+        <div class="map-embed" id="mapEmbed">
+          <div class="map-consent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <strong>Standort auf Google Maps</strong>
+            <p>Beim Laden der Karte werden Daten an Google übertragen. Details in der <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutzerklärung</a>.</p>
+            <button type="button" class="map-consent-btn" onclick="loadMap()">Karte laden</button>
+          </div>
         </div>
       </div>
     </div>
@@ -2016,14 +2098,26 @@
   <div class="modal" role="document">
     <button class="modal-close" onclick="closeModal('impressum')" aria-label="Impressum schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     <h2 id="modal-impressum-title">Impressum</h2>
-    <h3>Angaben gemäß § 5 TMG</h3>
-    <p>Selman Orhan<br>Anlagenmechaniker SHK<br>Tiergartenstraße 15<br>75175 Pforzheim</p>
+    <h3>Angaben gemäß § 5 DDG</h3>
+    <p>Selman Orhan<br>Fachbetrieb für Sanitär &amp; Heizung<br>Tiergartenstraße 15<br>75175 Pforzheim</p>
     <h3>Kontakt</h3>
     <p>Telefon: <a href="tel:+4972311884648">07231-1884648</a><br>Mobil: <a href="tel:+4917664900934">0176-64900934</a><br>E-Mail: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
-    <h3>Berufsbezeichnung</h3>
-    <p>Anlagenmechaniker für Sanitär-, Heizungs- und Klimatechnik (SHK)</p>
-    <h3>Haftungsausschluss</h3>
-    <p>Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir keine Gewähr übernehmen.</p>
+    <h3>Berufsbezeichnung &amp; berufsrechtliche Regelungen</h3>
+    <p>Berufsbezeichnung: Anlagenmechaniker für Sanitär-, Heizungs- und Klimatechnik (SHK)<br>Verliehen in: Deutschland<br>Zuständige Handwerkskammer: Handwerkskammer Karlsruhe, Friedrichsplatz 4–5, 76133 Karlsruhe</p>
+    <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+    <p>Selman Orhan, Anschrift wie oben.</p>
+    <h3>Umsatzsteuer</h3>
+    <p>Eine Umsatzsteuer-Identifikationsnummer nach § 27a UStG wird auf Anfrage mitgeteilt.</p>
+    <h3>EU-Streitschlichtung</h3>
+    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>. Unsere E-Mail-Adresse finden Sie oben in diesem Impressum.</p>
+    <h3>Verbraucherstreitbeilegung</h3>
+    <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <h3>Haftung für Inhalte</h3>
+    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.</p>
+    <h3>Haftung für Links</h3>
+    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+    <h3>Urheberrecht</h3>
+    <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung.</p>
   </div>
 </div>
 
@@ -2032,28 +2126,54 @@
   <div class="modal" role="document">
     <button class="modal-close" onclick="closeModal('datenschutz')" aria-label="Datenschutzerklärung schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     <h2 id="modal-datenschutz-title">Datenschutzerklärung</h2>
-    <h3>Verantwortlicher</h3>
-    <p>Selman Orhan · Anlagenmechaniker SHK<br>Tiergartenstraße 15 · 75175 Pforzheim<br>Telefon: 07231-1884648<br>E-Mail: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
-    <h3>Welche Daten wir erheben</h3>
-    <p>Bei der Nutzung unseres Kontaktformulars erheben wir: Name, E-Mail-Adresse, Telefonnummer (optional) und Ihre Nachricht. Diese Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
-    <h3>Kontaktanfragen</h3>
-    <p>Wenn Sie uns per E-Mail oder Kontaktformular kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-    <h3>Hosting</h3>
-    <p>Diese Website wird auf einem deutschen Server gehostet. Die Datenverarbeitung erfolgt auf Grundlage unserer berechtigten Interessen (Art. 6 Abs. 1 lit. f DSGVO).</p>
-    <h3>Ihre Rechte</h3>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>Verantwortlich für die Datenverarbeitung auf dieser Website:<br>Selman Orhan · Anlagenmechaniker SHK<br>Tiergartenstraße 15 · 75175 Pforzheim<br>Telefon: <a href="tel:+4972311884648">07231-1884648</a><br>E-Mail: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
+
+    <h3>2. Grundsätzliches</h3>
+    <p>Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Wir verarbeiten Ihre Daten ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, BDSG, TDDDG). Diese Erklärung informiert Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Website.</p>
+
+    <h3>3. Keine Cookies, kein Tracking</h3>
+    <p>Diese Website setzt <strong>keine Cookies</strong> und verwendet <strong>keine Analyse-, Tracking- oder Marketing-Dienste</strong>. Es findet kein Profiling und keine Reichweitenmessung statt. Aus diesem Grund ist kein Cookie-Banner erforderlich.</p>
+
+    <h3>4. Server-Logfiles</h3>
+    <p>Beim Aufruf der Website werden durch den Hosting-Provider automatisch Informationen in sogenannten Server-Logfiles gespeichert: Browsertyp und -version, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse. Diese Daten dienen ausschließlich der technischen Bereitstellung, Stabilität und Sicherheit der Website und werden nicht mit anderen Datenquellen zusammengeführt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
+
+    <h3>5. Hosting</h3>
+    <p>Diese Website wird bei einem Dienstleister gehostet, der die Daten in unserem Auftrag verarbeitet (Auftragsverarbeitung gemäß Art. 28 DSGVO). Die Verarbeitung erfolgt zur ordnungsgemäßen, sicheren Bereitstellung des Onlineangebots. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+    <h3>6. Lokale Schriftarten</h3>
+    <p>Die verwendeten Schriftarten (Manrope, Work Sans) werden lokal von unserem Server geladen. Es besteht <strong>keine Verbindung zu Servern von Google</strong> oder anderen Dritten. Bei der Darstellung der Schriften werden keine personenbezogenen Daten an Dritte übertragen.</p>
+
+    <h3>7. Kontaktaufnahme</h3>
+    <p>Wenn Sie uns über das Kontaktformular, per E-Mail oder telefonisch kontaktieren, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, Telefonnummer – optional – und Ihre Nachricht) zur Bearbeitung Ihrer Anfrage. Das Kontaktformular öffnet Ihr eigenes E-Mail-Programm; es werden keine Daten direkt über die Website übermittelt oder dort gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO. Wir speichern diese Daten, bis der Zweck der Speicherung entfällt, und löschen sie anschließend, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+    <h3>8. Google Maps</h3>
+    <p>Wir binden Kartenmaterial des Dienstes Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) ein. Die Karte wird <strong>erst nach Ihrer ausdrücklichen Einwilligung</strong> (Klick auf „Karte laden") geladen. Erst dann werden Daten – insbesondere Ihre IP-Adresse – an Google übertragen und ggf. in Drittländer (u.&nbsp;a. USA) weitergegeben. Vor dem Klick findet keine Datenübertragung statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), jederzeit mit Wirkung für die Zukunft widerrufbar.</p>
+
+    <h3>9. Eingebettete NIBE-Inhalte</h3>
+    <p>Auf unserer Website können Sie optional den Produktkatalog der NIBE Systemtechnik GmbH (Am Reidberg 13, 35799 Merenberg) laden. Diese Inhalte werden erst nach Ihrer ausdrücklichen Einwilligung – durch Klick auf „Katalog laden &amp; anzeigen" – über einen iframe von nibe.onlineshk.de eingebunden. Erst dann werden Daten wie Ihre IP-Adresse an NIBE bzw. dessen Dienstleister übertragen. Vor dem Klick findet keine Datenübertragung statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), jederzeit mit Wirkung für die Zukunft widerrufbar. Weitere Informationen finden Sie in der Datenschutzerklärung von NIBE.</p>
+
+    <h3>10. SSL-/TLS-Verschlüsselung</h3>
+    <p>Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie am „https://" in der Adresszeile Ihres Browsers. Daten, die Sie an uns übermitteln, können bei aktiver Verschlüsselung nicht von Dritten mitgelesen werden.</p>
+
+    <h3>11. Ihre Rechte</h3>
     <ul>
       <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
       <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
       <li>Recht auf Löschung (Art. 17 DSGVO)</li>
       <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
       <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
-      <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
+      <li>Widerspruchsrecht gegen die Verarbeitung (Art. 21 DSGVO)</li>
+      <li>Recht auf Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)</li>
     </ul>
-    <p style="margin-top:10px;">Anfragen an: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
-    <h3>Eingebettete NIBE-Inhalte</h3>
-    <p>Auf unserer Website können Sie optional den Produktkatalog der NIBE Systemtechnik GmbH (Am Reidberg 13, 35799 Merenberg) laden. Diese Inhalte werden erst nach Ihrer ausdrücklichen Einwilligung – durch Klick auf „Katalog laden &amp; anzeigen" – über einen iframe von nibe.onlineshk.de eingebunden. Erst dann werden Daten wie Ihre IP-Adresse an NIBE bzw. dessen Dienstleister übertragen. Vor dem Klick findet keine Datenübertragung statt. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit mit Wirkung für die Zukunft widerrufen können. Weitere Informationen finden Sie in der Datenschutzerklärung von NIBE.</p>
-    <h3>Google Maps</h3>
-    <p>Diese Website nutzt Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Durch die Nutzung können Informationen an Google übertragen werden.</p>
+    <p style="margin-top:10px;">Zur Ausübung Ihrer Rechte genügt eine formlose Nachricht an: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
+
+    <h3>12. Beschwerderecht bei der Aufsichtsbehörde</h3>
+    <p>Ihnen steht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu. Zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart.</p>
+
+    <h3>13. Aktualität dieser Erklärung</h3>
+    <p>Stand: Juni 2026. Durch die Weiterentwicklung unserer Website oder geänderte gesetzliche Vorgaben kann eine Anpassung dieser Datenschutzerklärung erforderlich werden. Es gilt jeweils die hier abrufbare aktuelle Fassung.</p>
   </div>
 </div>
 
@@ -2195,6 +2315,17 @@
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     wrap.replaceChildren(iframe);
     wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ── GOOGLE MAPS CONSENT EMBED ── */
+  function loadMap() {
+    const wrap = document.getElementById('mapEmbed');
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2613.8!2d8.7067!3d48.8953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479773b36ad63b91%3A0x4e48c26db5827f2c!2sTiergartenstra%C3%9Fe%2015%2C%2075175%20Pforzheim!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde';
+    iframe.title = 'Standort Selman Orhan Sanitär Pforzheim';
+    iframe.loading = 'lazy';
+    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    wrap.replaceChildren(iframe);
   }
 
   /* ── MODALS (focus trap + restore + aria-hidden) ── */
