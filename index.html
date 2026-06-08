@@ -732,7 +732,24 @@
       color: oklch(94% 0.01 255);
       line-height: 1.65;
       max-width: 540px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+    }
+
+    .nibe-logo {
+      height: 26px;
+      width: auto;
+      display: block;
+      margin-bottom: 28px;
+      /* offizielles NIBE-Logo (rot) → weiß auf blauem Grund */
+      filter: brightness(0) invert(1);
+      opacity: .95;
+    }
+
+    .nibe-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
     }
 
     .nibe-btn {
@@ -749,9 +766,72 @@
       text-decoration: none;
       transition: background .2s, transform .15s cubic-bezier(0.16,1,0.3,1);
       letter-spacing: .01em;
+      border: none;
+      cursor: pointer;
     }
 
     .nibe-btn:hover { background: oklch(96% 0.018 255); transform: translateY(-2px); }
+
+    .nibe-link {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: .01em;
+      border-bottom: 1.5px solid oklch(100% 0 0 / .35);
+      padding-bottom: 2px;
+      transition: border-color .2s;
+    }
+
+    .nibe-link:hover { border-color: var(--white); }
+
+    /* ── NIBE EMBED (Consent-iframe) ── */
+    .nibe-embed {
+      max-width: 1160px;
+      margin: 64px auto 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nibe-embed-consent {
+      background: oklch(100% 0 0 / .08);
+      border: 1px solid oklch(100% 0 0 / .22);
+      border-radius: 14px;
+      padding: 52px 32px;
+      text-align: center;
+    }
+
+    .nibe-embed-consent-inner { max-width: 540px; margin: 0 auto; }
+
+    .nibe-embed-consent h3 {
+      font-family: var(--font-head);
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .nibe-embed-consent p {
+      color: oklch(92% 0.01 255);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+
+    .nibe-embed-consent a { color: var(--white); text-decoration: underline; }
+
+    .nibe-embed iframe {
+      width: 100%;
+      height: 2200px;
+      max-height: 80vh;
+      border: none;
+      border-radius: 14px;
+      background: var(--white);
+      display: block;
+      box-shadow: 0 16px 48px oklch(20% 0.08 255 / .35);
+    }
 
     .nibe-visual-card {
       background: var(--white);
@@ -1210,6 +1290,36 @@
 
     .footer-center a:hover { color: var(--white); }
 
+    .footer-partner {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      text-decoration: none;
+      padding: 10px 14px;
+      border: 1px solid oklch(100% 0 0 / .12);
+      border-radius: 8px;
+      transition: border-color .2s, background .2s;
+    }
+
+    .footer-partner:hover { border-color: oklch(100% 0 0 / .3); background: oklch(100% 0 0 / .04); }
+
+    .footer-partner span {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: oklch(58% 0.007 18);
+    }
+
+    .footer-partner img {
+      height: 18px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: .9;
+    }
+
     .footer-links { display: flex; gap: 20px; }
 
     .footer-links a {
@@ -1327,6 +1437,9 @@
 
       .nibe-grid { grid-template-columns: 1fr; gap: 40px; }
       .nibe-visual-card { display: none; }
+      .nibe-embed { margin-top: 44px; }
+      .nibe-embed-consent { padding: 36px 22px; }
+      .nibe-embed iframe { max-height: 75vh; }
 
       .foerderung-layout { grid-template-columns: 1fr; gap: 40px; }
 
@@ -1507,7 +1620,7 @@
 <!-- TRUST BAR -->
 <ul class="trust-bar" aria-label="Qualitätsmerkmale">
   <li class="trust-item">SHK Meisterbetrieb</li>
-  <li class="trust-item">NIBE Fachpartner</li>
+  <li class="trust-item">NIBE Effizienzpartner</li>
   <li class="trust-item">Mo – Sa erreichbar</li>
   <li class="trust-item">Förderberatung inklusive</li>
 </ul>
@@ -1524,10 +1637,10 @@
       <div class="about-copy reveal reveal-d1">
         <span class="section-eyebrow" data-num="01">Über uns</span>
         <h2 class="section-title">Selman Orhan Sanitär &amp; Heizung</h2>
-        <p>Ihr vielseitiger Fachbetrieb aus Pforzheim – der mit viel Sorgfalt Ihre Gas- und Wasserinstallationen übernimmt.</p>
-        <p class="about-pullquote">Alles aus einer Hand. <em>Vom ersten Gespräch bis zur fertigen Anlage.</em></p>
-        <p>Bei uns erhalten Sie eine umfassende Beratung, hochwertige Arbeit und durchgehende Betreuung. Bestandsaufnahme, Planung, Installation, Wartung – alles bei einem Ansprechpartner.</p>
-        <a href="#kontakt" class="about-link">Projekt besprechen <span aria-hidden="true">→</span></a>
+        <p>Seit 2007 im Handwerk zuhause – vom ersten Lehrjahr bis zum eigenen Fachbetrieb in Pforzheim. Mein Name steht für saubere Installation, ehrliche Beratung und Technik, die hält.</p>
+        <p class="about-pullquote">Als NIBE-Effizienzpartner setze ich auf <em>moderne Wärmepumpen statt veralteter Heiztechnik.</em></p>
+        <p>Ob Wärmepumpe, Badsanierung oder Notfall – Sie haben einen festen Ansprechpartner von der Bestandsaufnahme bis zur Wartung. Kein Subunternehmer-Chaos, keine leeren Versprechen, sondern Arbeit, die Sie weiterempfehlen.</p>
+        <a href="#kontakt" class="about-link">Jetzt unverbindlich anfragen <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -1620,20 +1733,33 @@
   </div>
 </section>
 
-<!-- NIBE -->
+<!-- NIBE / WÄRMEPUMPEN -->
 <section id="nibe">
   <div class="nibe-grid">
     <div class="reveal">
-      <span class="section-eyebrow" data-num="03">Systempartner</span>
+      <span class="section-eyebrow" data-num="03">Effizienzpartner</span>
       <h2 class="section-title">NIBE Wärmepumpen</h2>
-      <p>Als qualifizierter Fachbetrieb installieren wir NIBE Wärmepumpen – eine der führenden Marken für energieeffiziente Heizsysteme. NIBE steht für hochwertige Technologie, lange Lebensdauer und maximale Effizienz. Wir beraten Sie gerne zur passenden Anlage für Ihr Gebäude.</p>
-      <a href="https://www.nibe.de" target="_blank" rel="noopener noreferrer" class="nibe-btn">
-        Mehr über NIBE erfahren →
-      </a>
+      <p>Als zertifizierter NIBE-Effizienzpartner planen und installieren wir moderne Wärmepumpen – von der NIBE S-Serie (z.&nbsp;B. S735) bis zur passenden Anlage für Alt- und Neubau. Maximale Effizienz, leiser Betrieb, volle Förderfähigkeit. Wir beraten Sie ehrlich, welche Lösung wirklich zu Ihrem Gebäude passt.</p>
+      <img src="nibe-logo.svg" class="nibe-logo" alt="NIBE Effizienzpartner" width="120" height="28" loading="lazy">
+      <div class="nibe-actions">
+        <a href="#nibe-katalog" class="nibe-btn">Wärmepumpen ansehen →</a>
+        <a href="https://www.nibe.eu/de-de" target="_blank" rel="noopener noreferrer" class="nibe-link">nibe.eu →</a>
+      </div>
     </div>
     <div class="nibe-visual-card reveal reveal-d1">
-      <img src="selman_orhan_bild_12.jpg" alt="Wärmepumpe Außeneinheit" width="1500" height="1000" loading="lazy" decoding="async">
+      <img src="selman_orhan_bild_12.jpg" alt="NIBE Wärmepumpe Außeneinheit" width="1500" height="1000" loading="lazy" decoding="async">
       <div class="nibe-card-foot">NIBE Wärmepumpe · Außeneinheit</div>
+    </div>
+  </div>
+
+  <!-- DSGVO-konformer Consent-iframe (lädt erst nach Klick) -->
+  <div class="nibe-embed reveal" id="nibe-katalog">
+    <div class="nibe-embed-consent" id="nibeConsent">
+      <div class="nibe-embed-consent-inner">
+        <h3>NIBE Wärmepumpen-Katalog</h3>
+        <p>Sehen Sie das komplette NIBE-Wärmepumpensortiment direkt hier. Beim Laden werden Inhalte der NIBE&nbsp;Systemtechnik&nbsp;GmbH eingebunden und Daten (z.&nbsp;B. Ihre IP-Adresse) an den externen Anbieter übertragen. Details in unserer <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutzerklärung</a>.</p>
+        <button class="nibe-btn" type="button" onclick="loadNibeEmbed()">Katalog laden &amp; anzeigen</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1871,6 +1997,10 @@
       <a href="tel:+4972311884648">07231-1884648</a> ·
       <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a>
     </div>
+    <a href="https://www.nibe.eu/de-de" target="_blank" rel="noopener noreferrer" class="footer-partner" aria-label="NIBE Effizienzpartner – zur NIBE Website">
+      <span>Effizienzpartner</span>
+      <img src="nibe-logo.svg" alt="NIBE" width="120" height="28" loading="lazy">
+    </a>
     <div class="footer-links">
       <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutz</a>
       <a href="#" onclick="openModal('impressum'); return false;">Impressum</a>
@@ -1920,6 +2050,8 @@
       <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
     </ul>
     <p style="margin-top:10px;">Anfragen an: <a href="mailto:info@selmanorhan-sanitaer.de">info@selmanorhan-sanitaer.de</a></p>
+    <h3>Eingebettete NIBE-Inhalte</h3>
+    <p>Auf unserer Website können Sie optional den Produktkatalog der NIBE Systemtechnik GmbH (Am Reidberg 13, 35799 Merenberg) laden. Diese Inhalte werden erst nach Ihrer ausdrücklichen Einwilligung – durch Klick auf „Katalog laden &amp; anzeigen" – über einen iframe von nibe.onlineshk.de eingebunden. Erst dann werden Daten wie Ihre IP-Adresse an NIBE bzw. dessen Dienstleister übertragen. Vor dem Klick findet keine Datenübertragung statt. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit mit Wirkung für die Zukunft widerrufen können. Weitere Informationen finden Sie in der Datenschutzerklärung von NIBE.</p>
     <h3>Google Maps</h3>
     <p>Diese Website nutzt Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Durch die Nutzung können Informationen an Google übertragen werden.</p>
   </div>
@@ -2050,6 +2182,19 @@
     window.location.href = `mailto:info@selmanorhan-sanitaer.de?subject=${subject}&body=${body}`;
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
+  }
+
+  /* ── NIBE CONSENT EMBED ── */
+  function loadNibeEmbed() {
+    const wrap = document.getElementById('nibe-katalog');
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.nibe.onlineshk.de/scripts/show.aspx?content=/de/shk/nibe/waermepumpen';
+    iframe.id = 'nibe_iframe';
+    iframe.title = 'NIBE Wärmepumpen-Katalog';
+    iframe.loading = 'lazy';
+    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    wrap.replaceChildren(iframe);
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   /* ── MODALS (focus trap + restore + aria-hidden) ── */
