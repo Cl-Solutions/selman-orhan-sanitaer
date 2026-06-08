@@ -212,20 +212,22 @@
     .nav-cta:hover { background: var(--red-dim) !important; }
 
     .nav-nibe {
-      background: var(--blue) !important;
       display: inline-flex !important;
       align-items: center;
-      padding: 9px 16px !important;
     }
-    .nav-nibe:hover { background: oklch(40% 0.178 255) !important; }
 
     .nav-nibe-logo {
-      height: 15px;
+      height: 14px;
       width: auto;
       display: block;
-      /* offizielles NIBE-Logo (rot) → weiß auf blauem Button */
+      /* NIBE-Logo dezent: weiß, gedämpft – wie die übrigen Nav-Links */
       filter: brightness(0) invert(1);
+      opacity: .6;
+      transition: opacity .15s;
     }
+
+    .nav-nibe:hover { background: oklch(100% 0 0 / .07) !important; }
+    .nav-nibe:hover .nav-nibe-logo { opacity: 1; }
 
     .hamburger {
       display: none;
