@@ -2473,7 +2473,11 @@
       `Telefon: ${data.get('telefon') || '-'}\n` +
       `Leistung: ${data.get('leistung') || '-'}\n\nNachricht:\n${data.get('nachricht')}`
     );
-    window.location.href = `mailto:info@selmanorhan-sanitaer.de?subject=${subject}&body=${body}`;
+    var a = document.createElement('a');
+    a.href = 'mailto:info@selmanorhan-sanitaer.de?subject=' + subject + '&body=' + body;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.click();
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
   }
