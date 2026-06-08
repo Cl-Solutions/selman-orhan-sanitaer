@@ -1641,6 +1641,17 @@
         gap: 10px;
         align-items: center;
         box-shadow: 0 -4px 24px oklch(0% 0 0 / .25);
+        /* erst nach dem Hero einblenden */
+        transform: translateY(110%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .4s cubic-bezier(0.16,1,0.3,1), opacity .3s ease;
+      }
+
+      .mobile-bar.visible {
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
       }
 
       .mobile-bar-call {
@@ -2352,6 +2363,18 @@
   }
   window.addEventListener('scroll', () => { if (!rafId) rafId = requestAnimationFrame(updateProgress); }, { passive: true });
   updateProgress();
+
+  /* ── MOBILE-BAR: erst nach dem Hero einblenden ── */
+  (function initMobileBar() {
+    const bar = document.querySelector('.mobile-bar');
+    const hero = document.getElementById('home');
+    if (!bar || !hero) return;
+    const obs = new IntersectionObserver(entries => {
+      // Hero sichtbar → Bar aus; Hero weggescrollt → Bar an
+      bar.classList.toggle('visible', !entries[0].isIntersecting);
+    }, { threshold: 0, rootMargin: '-40% 0px 0px 0px' });
+    obs.observe(hero);
+  })();
 
   /* ── SCROLL REVEAL ── */
   const observer = new IntersectionObserver(entries => {
