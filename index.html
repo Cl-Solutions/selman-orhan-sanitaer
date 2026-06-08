@@ -86,7 +86,7 @@
       --font-body:  'Work Sans', system-ui, sans-serif;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    html { scroll-padding-top: 84px; }
 
     /* ── FOCUS RING (keyboard only, not on mouse-click) ── */
     :focus { outline: none; }
@@ -2353,7 +2353,31 @@
   <a href="#kontakt" class="mobile-bar-contact">Anfrage</a>
 </div>
 
+<script src="lenis.min.js"></script>
 <script>
+  /* ── LENIS SMOOTH SCROLL ── */
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lenis = new Lenis({
+    duration: 1.15,
+    easing: function(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); },
+    touchMultiplier: 1.5,
+    smoothWheel: !reducedMotion
+  });
+  if (reducedMotion) lenis.stop();
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  /* Anchor-Klicks durch Lenis leiten */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -84 }); }
+    });
+  });
+
+  /* Lenis bei Modal stoppen/starten */
+  var _origOpenModal, _origCloseModal;
+
   /* ── HAMBURGER ── */
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
@@ -2510,7 +2534,7 @@
     iframe.loading = 'lazy';
     iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     wrap.replaceChildren(iframe);
-    wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (typeof lenis !== 'undefined') lenis.scrollTo(wrap, { offset: -84 }); else wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   /* ── GOOGLE MAPS CONSENT EMBED ── */
@@ -2537,6 +2561,7 @@
     m.classList.add('open');
     m.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    if (typeof lenis !== 'undefined') lenis.stop();
     const focusable = getFocusable(m);
     if (focusable.length) focusable[0].focus();
   }
@@ -2546,6 +2571,7 @@
     m.classList.remove('open');
     m.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (typeof lenis !== 'undefined') lenis.start();
     if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
 
