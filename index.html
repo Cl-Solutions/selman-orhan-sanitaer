@@ -914,19 +914,38 @@
 
     .foerderung-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.05fr;
       gap: 60px;
-      align-items: start;
+      align-items: center;
       margin-top: 0;
     }
 
-    .foerderung-intro { }
-    .foerderung-intro .section-title { margin-bottom: 20px; }
+    .foerderung-intro .section-title { margin-bottom: 22px; }
+    .foerderung-intro .section-title .fh-pct { color: var(--green); }
     .foerderung-intro p {
       font-size: 16px;
       color: var(--muted);
       line-height: 1.75;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
+    }
+
+    .foerderung-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .foerderung-badge {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--gray2);
+      border-radius: 999px;
+      padding: 7px 14px;
     }
 
     .foerderung-cta {
@@ -940,42 +959,42 @@
       text-decoration: none;
       letter-spacing: .01em;
       border-bottom: 2px solid var(--red-bg);
-      padding-bottom: 2px;
-      transition: border-color .15s;
+      padding-bottom: 3px;
+      transition: border-color .15s, gap .25s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .foerderung-cta:hover { border-color: var(--red); }
+    .foerderung-cta:hover { border-color: var(--red); gap: 12px; }
 
+    /* eine Karte mit Trennlinien statt loser Kärtchen */
     .foerderung-items {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+      background: var(--white);
+      border: 1px solid var(--gray2);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px oklch(0% 0 0 / .05);
     }
 
     .foerderung-item {
-      background: var(--white);
-      border-radius: 10px;
-      padding: 22px 24px;
+      padding: 20px 24px;
       display: flex;
-      gap: 18px;
+      gap: 16px;
       align-items: flex-start;
-      transition: box-shadow .2s;
+      transition: background .2s;
     }
 
-    .foerderung-item:hover {
-      box-shadow: 0 4px 24px oklch(0% 0 0 / .07);
-    }
+    .foerderung-item + .foerderung-item { border-top: 1px solid var(--gray); }
+    .foerderung-item:hover { background: var(--gray); }
 
     .foerderung-icon {
-      width: 42px; height: 42px;
-      border-radius: 8px;
+      width: 44px; height: 44px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    .foerderung-icon svg { width: 20px; height: 20px; display: block; }
+    .foerderung-icon svg { width: 21px; height: 21px; display: block; }
 
     .foerderung-icon.green { background: var(--green-bg); color: var(--green); }
     .foerderung-icon.blue  { background: var(--blue-bg);  color: var(--blue); }
@@ -1683,6 +1702,14 @@
       .mobile-bar-contact:active { background: var(--red-dim); }
 
       body { padding-bottom: 68px; }
+
+      /* Hero-Höhe stabil (kein Springen durch Browser-Leisten) +
+         Inhalt klärt die untere Sticky-Bar */
+      #home { height: 100svh; min-height: 540px; }
+      .hero-content { padding-bottom: 92px; }
+
+      /* Cookie-Banner über der Sticky-Bar, mit Safe-Area */
+      .cookie-bar { bottom: calc(80px + env(safe-area-inset-bottom)); }
     }
 
     /* iOS safe area — home indicator clearance on notched iPhones */
@@ -1699,11 +1726,18 @@
       #about, #services, #foerderung, #projekte, #kontakt { padding: 60px 18px; }
       #nibe { padding: 56px 18px; }
       footer { padding: 36px 18px; }
-      .hero-content { padding: 0 18px 56px; }
+      .hero-content { padding: 0 18px 88px; }
 
       /* services: single column on phones */
       .services-cats { grid-template-columns: 1fr; }
       .cat-photo { height: 180px; }
+
+      /* Förderung mobil: kompaktere Karte + Badges */
+      .foerderung-layout { gap: 32px; }
+      .foerderung-item { padding: 16px 18px; gap: 14px; }
+      .foerderung-icon { width: 40px; height: 40px; }
+      .foerderung-badges { gap: 7px; margin-bottom: 24px; }
+      .foerderung-badge { font-size: 11px; padding: 6px 12px; }
 
       /* prevent iOS input zoom (triggers on font-size < 16px) */
       .cf-group input,
@@ -1729,6 +1763,12 @@
       nav { padding: 0 14px; }
       .nav-logo img { height: 36px; }
       .nav-logo-text strong { font-size: 12px; }
+      .trust-item { font-size: 10px; padding: 0 9px; }
+      .btn-primary { max-width: none; }
+      .foerderung-item { padding: 15px 16px; }
+      .foerderung-item p { font-size: 12.5px; }
+      .cookie-bar { padding: 16px 18px; }
+      .cookie-bar p { font-size: 12.5px; }
     }
   </style>
 </head>
@@ -1930,8 +1970,14 @@
     <div class="foerderung-layout">
       <div class="foerderung-intro reveal">
         <span class="section-eyebrow" data-num="04">Zuschüsse</span>
-        <h2 class="section-title">Wir haben Ihre Kosten im Blick</h2>
-        <p>Wir informieren Sie im Voraus über wichtige Förderungen und Zuschüsse – besonders im Bereich Heizungssanierung. Sie müssen sich um nichts kümmern.</p>
+        <h2 class="section-title">Bis zu <span class="fh-pct">70&nbsp;%</span> vom Staat</h2>
+        <p>Eine neue Heizung muss nicht teuer sein. Bund und Land bezuschussen den Umstieg auf erneuerbare Wärme großzügig – wir holen für Sie das Maximum heraus und kümmern uns um die Anträge.</p>
+        <div class="foerderung-badges">
+          <span class="foerderung-badge">BAFA</span>
+          <span class="foerderung-badge">KfW</span>
+          <span class="foerderung-badge">Heizungstausch</span>
+          <span class="foerderung-badge">Sanierung</span>
+        </div>
         <a href="#kontakt" class="foerderung-cta">Jetzt beraten lassen →</a>
       </div>
       <div class="foerderung-items reveal reveal-d1">
